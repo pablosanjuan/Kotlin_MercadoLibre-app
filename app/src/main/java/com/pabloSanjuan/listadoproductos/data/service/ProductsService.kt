@@ -7,7 +7,7 @@ import retrofit2.http.Query
 interface ProductsService{
 
     //https://api.mercadolibre.com/sites/MLA/search?category=MLA1055
-    @GET("sites/MLA/seaarch?limit=1")
+    @GET("sites/MLA/search?limit=1")
     suspend fun searchByCategory(
         @Query("category") category: String
     ): Products
