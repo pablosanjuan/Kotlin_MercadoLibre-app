@@ -1,28 +1,21 @@
 package com.pabloSanjuan.listadoproductos.presentation.base
 
-import androidx.annotation.LayoutRes
-import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
+import com.pabloSanjuan.listadoproductos.data.di.factory.ViewModelFactory
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
-abstract class BaseFragment <V : ViewModel> : DaggerFragment() {
+abstract class BaseFragment <T> : DaggerFragment() {
 
     @Inject
-    lateinit var viewModelClass: Class<V>
+    lateinit var viewModelFactory: ViewModelFactory
 
-    @Inject
-    lateinit var viewModelFactory: ViewModelProvider.Factory
+    protected inline fun <reified T : ViewModel> initViewModel(): T {
+        return getViewModel(T::class.java)
+    }
 
-    //protected lateinit var binding: B
-    private lateinit var viewModel: V
-
-
-    protected fun setAndBindContentView(@LayoutRes layoutResID: Int) {
-        //binding = DataBindingUtil.setContentView(this, layoutResID)
-        viewModel = ViewModelProviders.of(this, viewModelFactory).get(viewModelClass)
+    protected fun <T : ViewModel> getViewModel(modelClass: Class<T>): T {
+        return ViewModelProvider(this, viewModelFactory).get(modelClass)
     }
 }

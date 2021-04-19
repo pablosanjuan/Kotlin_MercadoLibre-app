@@ -1,28 +1,21 @@
 package com.pabloSanjuan.listadoproductos.presentation.base
 
-import androidx.annotation.LayoutRes
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import com.pabloSanjuan.listadoproductos.data.di.factory.ViewModelFactory
-import com.pabloSanjuan.listadoproductos.presentation.MainActivityViewModel
 import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 
-open class BaseActivity <V : ViewModel> : DaggerAppCompatActivity() {
-
-    @Inject
-    lateinit var viewModelClass: Class<V>
+abstract class BaseActivity <T> : DaggerAppCompatActivity() {
 
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
 
-    //protected lateinit var binding: B
-    protected lateinit var viewModel: V
+    protected inline fun <reified T : ViewModel> initViewModel(): T {
+        return getViewModel(T::class.java)
+    }
 
-
-    protected fun setAndBindContentView(@LayoutRes layoutResID: Int) {
-        //binding = DataBindingUtil.setContentView(this, layoutResID)
-        viewModel = ViewModelProviders.of(this, viewModelFactory).get(viewModelClass)
+    protected fun <T : ViewModel> getViewModel(modelClass: Class<T>): T {
+        return ViewModelProvider(this, viewModelFactory).get(modelClass)
     }
 }

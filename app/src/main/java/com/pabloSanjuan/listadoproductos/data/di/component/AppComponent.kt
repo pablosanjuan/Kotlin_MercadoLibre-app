@@ -3,6 +3,10 @@ package com.pabloSanjuan.listadoproductos.data.di.component
 import android.app.Application
 import com.pabloSanjuan.listadoproductos.MainApplication
 import com.pabloSanjuan.listadoproductos.data.di.module.*
+import com.pabloSanjuan.listadoproductos.presentation.MainActivity
+import com.pabloSanjuan.listadoproductos.presentation.base.BaseActivity
+import com.pabloSanjuan.listadoproductos.presentation.base.BaseFragment
+import com.pabloSanjuan.listadoproductos.presentation.splash.SplashFragment
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector
@@ -29,4 +33,10 @@ interface AppComponent : AndroidInjector<MainApplication> {
 
         fun build(): AppComponent
     }
+
+    // Classes we can inject to by this Component
+//    fun inject(activity: BaseActivity<Any>)
+//    fun inject(baseFragment: BaseFragment<Any>)
+//    fun inject(mainActivity: MainActivity)
+//    fun inject(splashFragment: SplashFragment)
 }
