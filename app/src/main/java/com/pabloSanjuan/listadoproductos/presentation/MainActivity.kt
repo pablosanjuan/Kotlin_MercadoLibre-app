@@ -14,10 +14,12 @@ class MainActivity : BaseActivity<MainActivityViewModel>() {
         setContentView(R.layout.activity_main)
         viewModel = initViewModel()
         viewModel.getData()
+        initObservers()
+    }
 
+    private fun initObservers(){
         viewModel.productsList.observe(this, Observer {
-            val ss = it
+            val listResult = it
         })
-
     }
 }

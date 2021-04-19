@@ -33,10 +33,4 @@ interface AppComponent : AndroidInjector<MainApplication> {
 
         fun build(): AppComponent
     }
-
-    // Classes we can inject to by this Component
-//    fun inject(activity: BaseActivity<Any>)
-//    fun inject(baseFragment: BaseFragment<Any>)
-//    fun inject(mainActivity: MainActivity)
-//    fun inject(splashFragment: SplashFragment)
 }
