@@ -1,7 +1,6 @@
 package com.pabloSanjuan.listadoproductos.presentation
 
 import android.os.Bundle
-import androidx.lifecycle.Observer
 import androidx.lifecycle.observe
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
@@ -17,7 +16,7 @@ class MainActivity : BaseActivity<MainActivityViewModel, ActivityMainBinding>(),
     private lateinit var navGraphIds: List<Int>
 
     companion object {
-        var currentMenuId: Int =  R.id.splash_navigation
+        var currentMenuId: Int =  R.id.search_navigation
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,8 +29,6 @@ class MainActivity : BaseActivity<MainActivityViewModel, ActivityMainBinding>(),
             binding.bottomNavigationMain.selectedItemId = currentMenuId
         }
     }
-
-
 
     private fun setupBottomNavigationBar() {
         navGraphIds = listOf(
@@ -67,5 +64,6 @@ class MainActivity : BaseActivity<MainActivityViewModel, ActivityMainBinding>(),
         destination: NavDestination,
         arguments: Bundle?
     ) {
+        //hacer
     }
 }

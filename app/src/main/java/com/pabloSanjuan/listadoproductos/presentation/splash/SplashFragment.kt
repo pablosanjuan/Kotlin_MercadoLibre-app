@@ -2,12 +2,9 @@ package com.pabloSanjuan.listadoproductos.presentation.splash
 
 import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.pabloSanjuan.listadoproductos.R
-import com.pabloSanjuan.listadoproductos.databinding.FragmentHomeBinding
 import com.pabloSanjuan.listadoproductos.databinding.FragmentSplashBinding
 import com.pabloSanjuan.listadoproductos.presentation.base.BaseFragment
 import dagger.android.support.AndroidSupportInjection

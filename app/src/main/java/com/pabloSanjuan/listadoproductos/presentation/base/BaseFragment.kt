@@ -1,6 +1,5 @@
 package com.pabloSanjuan.listadoproductos.presentation.base
 
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.pabloSanjuan.listadoproductos.data.di.factory.ViewModelFactory
