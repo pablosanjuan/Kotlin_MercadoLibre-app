@@ -1,14 +1,16 @@
 package com.pabloSanjuan.listadoproductos.presentation
 
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.pabloSanjuan.listadoproductos.R
 import com.pabloSanjuan.listadoproductos.data.di.factory.ViewModelFactory
+import com.pabloSanjuan.listadoproductos.presentation.base.BaseActivity
 import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 
-class MainActivity : DaggerAppCompatActivity() {
+class MainActivity : AppCompatActivity() {
 
     lateinit var viewModel : MainActivityViewModel
     @Inject

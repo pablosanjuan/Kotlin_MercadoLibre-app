@@ -1,4 +1,7 @@
 package com.pabloSanjuan.listadoproductos.presentation.splash
 
-class Splash {
+import com.pabloSanjuan.listadoproductos.presentation.base.BaseFragment
+
+class Splash: BaseFragment<SplashViewModel>() {
+
 }
