@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="BKT_NavTextInactive">
+        <item name="android:textSize">@dimen/nav_text_inactive</item>
+        <item name="fontFamily">@font/imprima</item>
+    </style>
+
+    <style name="BKT_NavTextActive">
+        <item name="android:textSize">@dimen/nav_text_active</item>
+        <item name="fontFamily">@font/imprima</item>
+    </style>
+
+<!--    <style name="AppBottomSheetDialogTheme" parent="Theme.Design.BottomSheetDialog">-->
+<!--        <item name="bottomSheetStyle">@style/AppModalStyle</item>-->
+<!--    </style>-->
+
+<!--    <style name="AppModalStyle" parent="Widget.Design.BottomSheet.Modal">-->
+<!--        <item name="android:background">@drawable/shape_rounded_bottom_dialog</item>-->
+<!--    </style>-->
+</resources>

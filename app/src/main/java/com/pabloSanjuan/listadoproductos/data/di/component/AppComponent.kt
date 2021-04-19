@@ -3,10 +3,6 @@ package com.pabloSanjuan.listadoproductos.data.di.component
 import android.app.Application
 import com.pabloSanjuan.listadoproductos.MainApplication
 import com.pabloSanjuan.listadoproductos.data.di.module.*
-import com.pabloSanjuan.listadoproductos.presentation.MainActivity
-import com.pabloSanjuan.listadoproductos.presentation.base.BaseActivity
-import com.pabloSanjuan.listadoproductos.presentation.base.BaseFragment
-import com.pabloSanjuan.listadoproductos.presentation.splash.SplashFragment
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector
