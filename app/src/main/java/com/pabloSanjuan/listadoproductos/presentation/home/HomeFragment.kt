@@ -39,11 +39,11 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
     private fun initObservers() {
         viewModel.productsList.observe(viewLifecycleOwner, Observer {
             val listResult = it
-            binding.foto
-            Glide.with(this)
-                .load(it[0].thumbnail)
-                .into(binding.foto)
-            binding.titulo.text = it[0].title
+            //binding.foto
+            //Glide.with(this)
+            //    .load(it[0].thumbnail)
+            //    .into(binding.foto)
+            //binding.titulo.text = it[0].title
         })
     }
     companion object {
