@@ -6,16 +6,28 @@ import com.pabloSanjuan.listadoproductos.data.di.factory.ViewModelFactory
 import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 
-abstract class BaseActivity <T> : DaggerAppCompatActivity() {
+abstract class BaseActivity <V, B> : DaggerAppCompatActivity() {
 
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
 
-    protected inline fun <reified T : ViewModel> initViewModel(): T {
-        return getViewModel(T::class.java)
+    protected inline fun <reified V : ViewModel> initViewModel(): V {
+        return getViewModel(V::class.java)
     }
 
-    protected fun <T : ViewModel> getViewModel(modelClass: Class<T>): T {
+    protected fun <V : ViewModel> getViewModel(modelClass: Class<V>): V {
         return ViewModelProvider(this, viewModelFactory).get(modelClass)
+    }
+
+    private var _binding: B? = null
+    protected var binding
+        get() = _binding!!
+        set(value) {
+            _binding = value
+        }
+
+    override fun onDestroy() {
+        _binding = null
+        super.onDestroy()
     }
 }
