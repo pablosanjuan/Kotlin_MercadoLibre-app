@@ -1,17 +1,17 @@
-package com.pabloSanjuan.listadoproductos.presentation.splash
+package com.pabloSanjuan.listadoproductos.presentation.details
 
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.pabloSanjuan.listadoproductos.databinding.FragmentSplashBinding
+import com.pabloSanjuan.listadoproductos.databinding.FragmentDetailsBinding
 import com.pabloSanjuan.listadoproductos.presentation.base.BaseFragment
 import dagger.android.support.AndroidSupportInjection
 
-class SplashFragment : BaseFragment<SplashViewModel, FragmentSplashBinding>() {
+class DetailsFragment : BaseFragment<DetailsViewModel, FragmentDetailsBinding>() {
 
-        private lateinit var viewModel: SplashViewModel
+    private lateinit var viewModel: DetailsViewModel
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -23,7 +23,7 @@ class SplashFragment : BaseFragment<SplashViewModel, FragmentSplashBinding>() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentSplashBinding.inflate(inflater)
+        binding = FragmentDetailsBinding.inflate(inflater)
         return binding.root
     }
 

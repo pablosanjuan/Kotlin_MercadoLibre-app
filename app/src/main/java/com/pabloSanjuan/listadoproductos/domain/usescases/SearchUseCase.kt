@@ -4,9 +4,9 @@ import com.pabloSanjuan.listadoproductos.data.models.Products
 import com.pabloSanjuan.listadoproductos.domain.repositories.SearchRepository
 import retrofit2.Response
 
-class GetSearchUseCase(
+class SearchUseCase(
     private val searchRepository: SearchRepository
-) : UseCase<Products, GetSearchUseCase.Params> {
+) : UseCase<Products, SearchUseCase.Params> {
 
     override suspend fun invoke(params: Params): Response<Products> {
         return searchRepository.getSearchData(params.query)

@@ -3,10 +3,10 @@ package com.pabloSanjuan.listadoproductos.presentation.base
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.pabloSanjuan.listadoproductos.data.di.factory.ViewModelFactory
-import dagger.android.support.DaggerAppCompatActivity
+import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
-abstract class BaseActivity <V, B> : DaggerAppCompatActivity() {
+abstract class BaseFragment <V, B> : DaggerFragment() {
 
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
