@@ -1,6 +1,7 @@
 package com.pabloSanjuan.listadoproductos.presentation
 
 import android.os.Bundle
+import android.view.WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS
 import androidx.lifecycle.observe
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination

@@ -2,9 +2,14 @@ package com.pabloSanjuan.listadoproductos.presentation.home
 
 import android.content.Context
 import android.os.Bundle
+import android.provider.DocumentsContract
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RelativeLayout
+import androidx.activity.OnBackPressedCallback
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.constraintlayout.widget.ConstraintSet
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.pabloSanjuan.listadoproductos.databinding.FragmentHomeBinding
@@ -33,7 +38,28 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
         super.onViewCreated(view, savedInstanceState)
         viewModel = initViewModel()
         viewModel.getData()
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object :
+            OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                with(binding.inputEditSearch){
+                    if (isFocused)
+                        clearFocus()
+                }
+                requireActivity().onBackPressed()
+            }
+        })
         initObservers()
+        initListeners()
+    }
+
+    private fun initListeners() {
+        binding.inputEditSearch.setOnFocusChangeListener { _, hasFocus ->
+            if (hasFocus) {
+                val params = binding.inputSearch.layoutParams as ConstraintLayout.LayoutParams
+                params.bottomToBottom = binding.root.id
+                binding.inputSearch.requestLayout()
+            }
+        }
     }
 
     private fun initObservers() {

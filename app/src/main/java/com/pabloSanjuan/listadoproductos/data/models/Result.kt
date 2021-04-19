@@ -2,6 +2,7 @@ package com.pabloSanjuan.listadoproductos.data.models
 
 
 import com.google.gson.annotations.SerializedName
+import java.nio.channels.FileLock
 
 data class Result(
     @SerializedName("accepts_mercadopago")
@@ -39,7 +40,7 @@ data class Result(
     @SerializedName("permalink")
     val permalink: String,
     @SerializedName("price")
-    val price: Int,
+    val price: Float,
     @SerializedName("prices")
     val prices: Prices,
     @SerializedName("sale_price")

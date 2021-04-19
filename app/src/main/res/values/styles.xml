@@ -1,37 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="BKT_NavTextInactive">
-        <item name="android:textSize">@dimen/nav_text_inactive</item>
-        <item name="fontFamily">@font/imprima</item>
-    </style>
 
-    <style name="BKT_NavTextActive">
-        <item name="android:textSize">@dimen/nav_text_active</item>
+    <!--    INPUT BOX   -->
+    <style name="TextInputEditText_SearchLayout" parent="Widget.MaterialComponents.TextInputLayout.FilledBox.Dense">
+        <item name="boxCornerRadiusTopStart">@dimen/spacing_medium_element</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/spacing_medium_element</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/spacing_medium_element</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/spacing_medium_element</item>
         <item name="fontFamily">@font/imprima</item>
-    </style>
-
-    <style name="TextInputLayout.searchBar" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
-        <item name="boxCornerRadiusTopStart">@dimen/spacing_small_medium_element</item>
-        <item name="boxCornerRadiusTopEnd">@dimen/spacing_small_medium_element</item>
-        <item name="boxCornerRadiusBottomStart">@dimen/spacing_small_medium_element</item>
-        <item name="boxCornerRadiusBottomEnd">@dimen/spacing_small_medium_element</item>
         <item name="boxStrokeColor">@null</item>
-        <item name="font">@style/TextAppearance.pabloSj.Body1</item>
         <item name="boxStrokeWidth">0dp</item>
-        <item name="boxStrokeWidthFocused">2dp</item>
+        <item name="boxStrokeWidthFocused">0dp</item>
         <item name="android:layout_marginTop">@dimen/spacing_small_element</item>
-        <item name="android:background">?colorSecondary</item>
     </style>
 
-    <style name="BKT_TextInputEditText">
-        <item name="android:textColor">?colorOnBackground</item>
-        <item name="android:backgroundTint">?colorSurface</item>
+    <style name="TextInputEditText_SearchInput">
+        <item name="android:textColor">?colorOnSecondary</item>
+        <item name="android:backgroundTint">?colorSecondary</item>
         <item name="android:singleLine">true</item>
-        <item name="android:textAppearance">?textAppearanceBody2</item>
+        <item name="fontFamily">@font/imprima</item>
+        <item name="android:textAppearance">?textAppearanceBody1</item>
         <item name="android:paddingStart">@dimen/spacing_extra_small_element</item>
         <item name="android:paddingEnd">@dimen/spacing_extra_small_element</item>
         <item name="android:shadowColor">@color/grey_300</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
+
+    <!--    BOTTOM NAVIGATION   -->
+    <style name="NavTextActive">
+        <item name="android:textSize">@dimen/nav_text_active</item>
+        <item name="fontFamily">@font/imprima</item>
+    </style>
+
+    <style name="NavTextInactive">
+        <item name="android:textSize">@dimen/nav_text_inactive</item>
+        <item name="fontFamily">@font/imprima</item>
+    </style>
+
 </resources>
