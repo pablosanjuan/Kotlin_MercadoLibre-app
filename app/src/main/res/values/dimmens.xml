@@ -20,4 +20,10 @@
     <dimen name="spacing_medium_large_element">32dp</dimen>
     <dimen name="spacing_medium_larger_element">36dp</dimen>
     <dimen name="spacing_extra_large_element">40dp</dimen>
+    <dimen name="lottie_arrow_size">90dp</dimen>
+
+    <!-- item_sizes -->
+    <dimen name="item_image_size">150dp</dimen>
+    <dimen name="stroke_width">1dp</dimen>
+
 </resources>

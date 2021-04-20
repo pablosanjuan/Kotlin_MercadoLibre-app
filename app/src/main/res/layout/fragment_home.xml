@@ -9,6 +9,7 @@
     tools:context=".presentation.home.HomeFragment">
 
     <TextView
+        android:id="@+id/bienvenido_text"
         android:text="@string/bienvenido"
         style="@style/TextAppearance.pabloSj.Headline3"
         android:textColor="?colorPrimary"
@@ -16,7 +17,17 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/spacing_small_medium_element"
         app:layout_constraintStart_toStartOf="@+id/input_search"
-        app:layout_constraintBottom_toTopOf="@+id/input_search"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/image_lottie_search"
+        android:layout_width="@dimen/item_image_size"
+        android:layout_height="@dimen/item_image_size"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bienvenido_text" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/input_search"
@@ -29,26 +40,44 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:startIconDrawable="@drawable/ic_baseline_search_24">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/input_edit_search"
             android:hint="@string/haz_una_busqueda"
-            style="@style/TextInputEditText_SearchInput"
-            android:imeOptions="actionSearch"/>
+            style="@style/TextInputEditText_SearchInput" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/image_lottie_arrow"
+        android:rotation="-90"
+        android:layout_width="@dimen/lottie_arrow_size"
+        android:layout_height="@dimen/lottie_arrow_size"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_search" />
+
+    <Button
+        android:id="@+id/search_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/CustomButton"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@+id/input_search"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/search"/>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_search_books"
-        android:visibility="gone"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="@dimen/spacing_medium_element"
-        android:layout_marginBottom="@dimen/spacing_medium_element"
+        android:layout_marginTop="@dimen/spacing_tiny_element"
+        android:layout_marginBottom="@dimen/spacing_extra_small_element"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/input_search" />
+        app:layout_constraintTop_toBottomOf="@+id/search_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
