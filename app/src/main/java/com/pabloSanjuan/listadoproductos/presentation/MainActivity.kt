@@ -1,5 +1,7 @@
 package com.pabloSanjuan.listadoproductos.presentation
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS
 import androidx.lifecycle.observe
@@ -18,6 +20,11 @@ class MainActivity : BaseActivity<MainActivityViewModel, ActivityMainBinding>(),
 
     companion object {
         var currentMenuId: Int =  R.id.search_navigation
+        fun start(context: Context, bundle: Bundle? = null) {
+            val intent = Intent(context, MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
+            context.startActivity(intent, bundle)
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

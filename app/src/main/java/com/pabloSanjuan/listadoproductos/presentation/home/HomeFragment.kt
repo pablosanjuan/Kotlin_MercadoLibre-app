@@ -45,16 +45,26 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = initViewModel()
-        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object :
-            OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-            }
-        })
+//        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object :
+//            OnBackPressedCallback(true) {
+//            override fun handleOnBackPressed() {
+//            }
+//        })
         binding.recyclerSearchBooks.layoutManager =
             GridLayoutManager(requireContext(), 2)
         binding.recyclerSearchBooks.adapter = adapter
+        if (viewModel.productsList.value!=null){
+            removeUI()
+        }
         initObservers()
         initListeners()
+    }
+
+    private fun removeUI() {
+        binding.searchButton.visible = true
+        binding.bienvenidoText.visible = false
+        binding.imageLottieArrow.visible = false
+        binding.imageLottieSearch.visible = false
     }
 
     private fun initListeners() {
@@ -64,11 +74,7 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
                     val params = binding.inputSearch.layoutParams as ConstraintLayout.LayoutParams
                     params.bottomToBottom = binding.root.id
                     binding.inputSearch.requestLayout()
-                    binding.searchButton.visible = true
-                    binding.bienvenidoText.visible = false
-                    binding.imageLottieArrow.visible = false
-                    binding.imageLottieSearch.visible = false
-
+                    removeUI()
                 }
             }
         }

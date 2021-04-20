@@ -11,7 +11,7 @@
     <TextView
         android:id="@+id/bienvenido_text"
         android:text="@string/bienvenido"
-        style="@style/TextAppearance.pabloSj.Headline3"
+        android:textAppearance="?textAppearanceHeadline3"
         android:textColor="?colorPrimary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
