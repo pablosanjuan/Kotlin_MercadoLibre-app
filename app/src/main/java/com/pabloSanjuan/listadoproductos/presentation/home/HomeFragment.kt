@@ -2,18 +2,12 @@ package com.pabloSanjuan.listadoproductos.presentation.home
 
 import android.content.Context
 import android.os.Bundle
-import android.provider.DocumentsContract
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.RelativeLayout
-import androidx.activity.OnBackPressedCallback
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.constraintlayout.widget.ConstraintSet
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.bumptech.glide.Glide
 import com.pabloSanjuan.listadoproductos.databinding.FragmentHomeBinding
 import com.pabloSanjuan.listadoproductos.presentation.base.BaseFragment
 import com.pabloSanjuan.listadoproductos.presentation.home.items.ItemProduct
@@ -51,36 +45,36 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
 //            override fun handleOnBackPressed() {
 //            }
 //        })
-        binding.recyclerSearchBooks.layoutManager =
+        binding.recyclerView.layoutManager =
             GridLayoutManager(requireContext(), 2)
-        binding.recyclerSearchBooks.adapter = adapter
-        if (viewModel.productsList.value!=null){
-            removeUI()
+        binding.recyclerView.adapter = adapter
+        if (viewModel.productsList.value != null) {
+            itemsUIState(true)
         }
         initObservers()
         initListeners()
     }
 
-    private fun removeUI() {
-        binding.searchButton.visible = true
-        binding.bienvenidoText.visible = false
-        binding.imageLottieArrow.visible = false
-        binding.imageLottieSearch.visible = false
+
+    private fun itemsUIState(state: Boolean) {
+        binding.searchButton.visible = state
+        binding.recyclerView.visible = state
+        binding.bienvenidoText.visible = state.not()
+        binding.imageLottieArrow.visible = state.not()
+        binding.imageLottieSearch.visible = state.not()
     }
 
     private fun initListeners() {
         binding.inputEditSearch.apply {
             setOnFocusChangeListener { _, hasFocus ->
                 if (hasFocus) {
-                    val params = binding.inputSearch.layoutParams as ConstraintLayout.LayoutParams
-                    params.bottomToBottom = binding.root.id
-                    binding.inputSearch.requestLayout()
-                    removeUI()
+                    itemsUIState(true)
                 }
             }
         }
         binding.searchButton.apply {
             setOnClickListener {
+                binding.inputEditSearch.clearFocus()
                 activity?.hideKeyboard(it)
                 if (getInputText().isEmpty().not()) {
                     viewModel.getData(query = getInputText())
@@ -110,12 +104,27 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
 
     private fun initObservers() {
         viewModel.productsList.observe(viewLifecycleOwner, Observer {
-            showLoading(false)
-            adapter.clear()
-            it?.forEach { result ->
-                adapter.add(ItemProduct(result))
+            if (it.paging.total != 0) {
+                adapter.clear()
+                it?.results?.forEach { result ->
+                    adapter.add(ItemProduct(result))
+                }
+            } else {
+                binding.bienvenidoText.text = "0 Resultados"
+                showNoResults()
             }
+            showLoading(false)
         })
+    }
+
+    private fun showNoResults() {
+        itemsUIState(false)
+        with(binding.imageLottieSearch) {
+            setAnimation("lottie_no_found.json")
+            repeatCount = 3
+            speed = 1f
+            playAnimation()
+        }
     }
 
     private fun showLoading(show: Boolean?) {

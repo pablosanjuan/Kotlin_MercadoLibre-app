@@ -37,7 +37,7 @@
         android:layout_height="@dimen/stroke_width"
         android:layout_marginTop="@dimen/spacing_extra_small_element"
         android:layout_marginBottom="@dimen/spacing_extra_small_element"
-        android:background="@color/grey_400"
+        android:background="?colorSecondaryVariant"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/product_title" />
@@ -47,7 +47,8 @@
         android:layout_width="80dp"
         android:layout_height="18dp"
         android:layout_marginTop="@dimen/spacing_extra_small_element"
-        android:layout_marginBottom="@dimen/spacing_extra_small_element"        android:scaleType="fitXY"
+        android:layout_marginBottom="@dimen/spacing_extra_small_element"
+        android:scaleType="fitXY"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
         app:lottie_rawRes="?lottie_skeleton_loading"

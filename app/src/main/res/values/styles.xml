@@ -16,6 +16,7 @@
 
     <style name="TextInputEditText_SearchInput">
         <item name="android:textColor">?colorOnSecondary</item>
+        <item name="android:textColorHint">?colorPrimary</item>
         <item name="android:backgroundTint">?colorSecondary</item>
         <item name="android:singleLine">true</item>
         <item name="fontFamily">@font/imprima</item>

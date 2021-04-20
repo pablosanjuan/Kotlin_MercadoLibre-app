@@ -9,6 +9,6 @@
         android:topRightRadius="@dimen/spacing_extra_small_element" />
     <stroke
         android:width="@dimen/stroke_width"
-        android:color="@color/grey_400"/>
+        android:color="?colorSecondaryVariant"/>
 
 </shape>
