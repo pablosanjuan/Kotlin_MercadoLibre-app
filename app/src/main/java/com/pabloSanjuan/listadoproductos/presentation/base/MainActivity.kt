@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.lifecycle.observe
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
+import com.pabloSanjuan.listadoproductos.MainApplication.Companion.appComponent
 import com.pabloSanjuan.listadoproductos.R
 import com.pabloSanjuan.listadoproductos.databinding.ActivityMainBinding
 import com.pabloSanjuan.listadoproductos.utils.ktx.setupWithNavController
@@ -27,6 +28,7 @@ class MainActivity : BaseActivity<MainActivityViewModel, ActivityMainBinding>(),
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        appComponent.inject(this)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setupBottomNavigationBar()

@@ -1,12 +1,12 @@
 package com.pabloSanjuan.listadoproductos.presentation.base
 
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.pabloSanjuan.listadoproductos.data.di.factory.ViewModelFactory
-import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 
-abstract class BaseActivity <V, B> : DaggerAppCompatActivity() {
+abstract class BaseActivity <V, B> : AppCompatActivity() {
 
     @Inject
     lateinit var viewModelFactory: ViewModelFactory

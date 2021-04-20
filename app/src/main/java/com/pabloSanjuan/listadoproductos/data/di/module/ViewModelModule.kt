@@ -1,7 +1,9 @@
 package com.pabloSanjuan.listadoproductos.data.di.module
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.pabloSanjuan.listadoproductos.data.di.annotation.ViewModelKey
+import com.pabloSanjuan.listadoproductos.data.di.factory.ViewModelFactory
 import com.pabloSanjuan.listadoproductos.presentation.base.MainActivityViewModel
 import com.pabloSanjuan.listadoproductos.presentation.config.ConfigViewModel
 import com.pabloSanjuan.listadoproductos.presentation.details.DetailsViewModel
@@ -13,6 +15,9 @@ import dagger.multibindings.IntoMap
 
 @Module
 abstract class ViewModelModule {
+
+    @Binds
+    abstract fun bindsViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory
 
     @Binds
     @IntoMap

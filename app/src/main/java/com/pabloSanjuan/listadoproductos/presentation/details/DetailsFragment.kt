@@ -5,9 +5,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.pabloSanjuan.listadoproductos.MainApplication
 import com.pabloSanjuan.listadoproductos.databinding.FragmentDetailsBinding
 import com.pabloSanjuan.listadoproductos.presentation.base.BaseFragment
-import dagger.android.support.AndroidSupportInjection
 
 class DetailsFragment : BaseFragment<DetailsViewModel, FragmentDetailsBinding>() {
 
@@ -15,7 +15,7 @@ class DetailsFragment : BaseFragment<DetailsViewModel, FragmentDetailsBinding>()
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        AndroidSupportInjection.inject(this)
+        MainApplication.appComponent.inject(this)
     }
 
     override fun onCreateView(

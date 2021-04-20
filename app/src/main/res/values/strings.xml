@@ -14,4 +14,5 @@
     <string name="hello_world">Hello Square World!</string>
     <string name="pablo_sanjuan">\@PabloSanjuan</string>
     <string name="app_para_mercado_libre">Android App para Mercado Libre</string>
+    <string name="theme_preferences_key" translatable="false">theme_preferences</string>
 </resources>

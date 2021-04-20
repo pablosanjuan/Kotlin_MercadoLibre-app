@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
+import com.pabloSanjuan.listadoproductos.MainApplication
 import com.pabloSanjuan.listadoproductos.databinding.FragmentHomeBinding
 import com.pabloSanjuan.listadoproductos.presentation.base.BaseFragment
 import com.pabloSanjuan.listadoproductos.presentation.home.items.ItemProduct
@@ -16,7 +17,6 @@ import com.pabloSanjuan.listadoproductos.utils.ktx.toast
 import com.pabloSanjuan.listadoproductos.utils.ktx.visible
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.ViewHolder
-import dagger.android.support.AndroidSupportInjection
 
 class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
 
@@ -25,7 +25,7 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        AndroidSupportInjection.inject(this)
+        MainApplication.appComponent.inject(this)
     }
 
     override fun onCreateView(
