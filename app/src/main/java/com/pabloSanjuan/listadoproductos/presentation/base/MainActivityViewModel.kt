@@ -1,4 +1,4 @@
-package com.pabloSanjuan.listadoproductos.presentation
+package com.pabloSanjuan.listadoproductos.presentation.base
 
 import androidx.lifecycle.ViewModel
 import javax.inject.Inject

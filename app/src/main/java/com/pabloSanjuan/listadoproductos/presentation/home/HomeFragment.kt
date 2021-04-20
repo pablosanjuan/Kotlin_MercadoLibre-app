@@ -110,6 +110,7 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
                     adapter.add(ItemProduct(result))
                 }
             } else {
+                adapter.clear()
                 binding.bienvenidoText.text = "0 Resultados"
                 showNoResults()
             }

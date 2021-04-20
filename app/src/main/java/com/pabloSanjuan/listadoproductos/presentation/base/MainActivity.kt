@@ -1,15 +1,13 @@
-package com.pabloSanjuan.listadoproductos.presentation
+package com.pabloSanjuan.listadoproductos.presentation.base
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.view.WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS
 import androidx.lifecycle.observe
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import com.pabloSanjuan.listadoproductos.R
 import com.pabloSanjuan.listadoproductos.databinding.ActivityMainBinding
-import com.pabloSanjuan.listadoproductos.presentation.base.BaseActivity
 import com.pabloSanjuan.listadoproductos.utils.ktx.setupWithNavController
 
 class MainActivity : BaseActivity<MainActivityViewModel, ActivityMainBinding>(),
@@ -34,7 +32,8 @@ class MainActivity : BaseActivity<MainActivityViewModel, ActivityMainBinding>(),
         setupBottomNavigationBar()
 
         if (savedInstanceState != null) {
-            binding.bottomNavigationMain.selectedItemId = currentMenuId
+            binding.bottomNavigationMain.selectedItemId =
+                currentMenuId
         }
     }
 
@@ -72,6 +71,6 @@ class MainActivity : BaseActivity<MainActivityViewModel, ActivityMainBinding>(),
         destination: NavDestination,
         arguments: Bundle?
     ) {
-        //hacer
+        //Hacer Si es Necesario
     }
 }

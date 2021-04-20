@@ -1,5 +1,6 @@
 package com.pabloSanjuan.listadoproductos.data.di.module
 
+import com.pabloSanjuan.listadoproductos.presentation.config.ConfigFragment
 import com.pabloSanjuan.listadoproductos.presentation.details.DetailsFragment
 import com.pabloSanjuan.listadoproductos.presentation.home.HomeFragment
 import dagger.Module
@@ -13,4 +14,7 @@ abstract class FragmentsBuilderModule {
 
     @ContributesAndroidInjector
     abstract fun contributesInjectDetailsFragment(): DetailsFragment
+
+    @ContributesAndroidInjector
+    abstract fun contributesInjectConfigFragment(): ConfigFragment
 }

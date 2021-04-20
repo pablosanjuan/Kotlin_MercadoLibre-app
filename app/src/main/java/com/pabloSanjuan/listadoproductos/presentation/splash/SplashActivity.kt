@@ -3,7 +3,7 @@ package com.pabloSanjuan.listadoproductos.presentation.splash
 import android.os.Bundle
 import androidx.lifecycle.Observer
 import com.pabloSanjuan.listadoproductos.databinding.ActivitySplashBinding
-import com.pabloSanjuan.listadoproductos.presentation.MainActivity
+import com.pabloSanjuan.listadoproductos.presentation.base.MainActivity
 import com.pabloSanjuan.listadoproductos.presentation.base.BaseActivity
 
 class SplashActivity : BaseActivity<SplashViewModel, ActivitySplashBinding>() {

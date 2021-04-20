@@ -1,6 +1,6 @@
 package com.pabloSanjuan.listadoproductos.data.di.module
 
-import com.pabloSanjuan.listadoproductos.presentation.MainActivity
+import com.pabloSanjuan.listadoproductos.presentation.base.MainActivity
 import com.pabloSanjuan.listadoproductos.presentation.splash.SplashActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
