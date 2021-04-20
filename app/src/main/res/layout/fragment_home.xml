@@ -80,4 +80,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/search_button" />
 
+    <LinearLayout
+        android:id="@+id/skeleton_loading"
+        android:visibility="gone"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/spacing_tiny_element"
+        android:layout_marginBottom="@dimen/spacing_extra_small_element"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/search_button"
+        android:animateLayoutChanges="true">
+
+        <include layout="@layout/skeleton_loading" />
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

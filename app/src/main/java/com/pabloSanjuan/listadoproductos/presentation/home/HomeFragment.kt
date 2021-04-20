@@ -75,6 +75,7 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
         binding.searchButton.apply {
             setOnClickListener {
                 activity?.hideKeyboard(it)
+                showLoading(true)
                 viewModel.getData()
             }
         }
@@ -94,19 +95,15 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
 
     private fun initObservers() {
         viewModel.productsList.observe(viewLifecycleOwner, Observer {
+            showLoading(false)
             adapter.clear()
             it?.forEach { result ->
                 adapter.add(ItemProduct(result))
             }
-//            val listResult = it
-//            binding.foto
-//            Glide.with(this)
-//                .load(it[0].thumbnail)
-//                .into(binding.foto)
-//            binding.titulo.text = it[0].title
         })
     }
 
-    companion object {
+    private fun showLoading(show: Boolean?) {
+        binding.skeletonLoading.visibility = if (show == true) View.VISIBLE else View.GONE
     }
 }
