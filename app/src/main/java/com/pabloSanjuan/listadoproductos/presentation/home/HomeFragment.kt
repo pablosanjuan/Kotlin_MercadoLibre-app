@@ -18,6 +18,7 @@ import com.pabloSanjuan.listadoproductos.databinding.FragmentHomeBinding
 import com.pabloSanjuan.listadoproductos.presentation.base.BaseFragment
 import com.pabloSanjuan.listadoproductos.presentation.home.items.ItemProduct
 import com.pabloSanjuan.listadoproductos.utils.ktx.hideKeyboard
+import com.pabloSanjuan.listadoproductos.utils.ktx.toast
 import com.pabloSanjuan.listadoproductos.utils.ktx.visible
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.ViewHolder
@@ -81,8 +82,12 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
         binding.searchButton.apply {
             setOnClickListener {
                 activity?.hideKeyboard(it)
-                showLoading(true)
-                viewModel.getData()
+                if (getInputText().isEmpty().not()) {
+                    viewModel.getData(query = getInputText())
+                    showLoading(true)
+                } else {
+                    context.toast("por favor introducir algo para buscar!")
+                }
             }
         }
         with(binding.imageLottieSearch) {
@@ -97,6 +102,10 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
             speed = 1f
             playAnimation()
         }
+    }
+
+    private fun getInputText(): String {
+        return binding.inputEditSearch.text.toString()
     }
 
     private fun initObservers() {

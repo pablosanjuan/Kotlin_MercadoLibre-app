@@ -17,9 +17,9 @@ class HomeViewModel @Inject constructor(
 
     val productsList = MutableLiveData<List<Result>>()
 
-    fun getData() {
+    fun getData(query: String) {
         val params = HashMap<String, String>()
-        params["category"] = "MLA1055"
+        params["q"] = query
 
         viewModelScope.launch {
             withContext(Dispatchers.IO) {
