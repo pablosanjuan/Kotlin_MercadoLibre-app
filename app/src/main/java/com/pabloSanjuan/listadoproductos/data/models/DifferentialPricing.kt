@@ -1,9 +1,8 @@
 package com.pabloSanjuan.listadoproductos.data.models
 
-
 import kotlinx.android.parcel.Parcelize
 import android.os.Parcelable
 
 @Parcelize
-class Seller(
+class DifferentialPricing(
 ) : Parcelable

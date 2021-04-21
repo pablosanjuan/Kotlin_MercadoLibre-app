@@ -1,15 +1,8 @@
 package com.pabloSanjuan.listadoproductos.data.models
 
+import kotlinx.android.parcel.Parcelize
+import android.os.Parcelable
 
-import com.google.gson.annotations.SerializedName
-
-data class Address(
-    @SerializedName("city_id")
-    val cityId: String,
-    @SerializedName("city_name")
-    val cityName: String,
-    @SerializedName("state_id")
-    val stateId: String,
-    @SerializedName("state_name")
-    val stateName: String
-)
+@Parcelize
+class Address(
+) : Parcelable

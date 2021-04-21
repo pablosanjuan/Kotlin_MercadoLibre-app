@@ -111,7 +111,7 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
 
     private fun initObservers() {
         viewModel.productsList.observe(viewLifecycleOwner, Observer {
-            if (it.paging.total != 0) {
+            if (it.paging?.total != 0) {
                 adapter.clear()
                 it?.results?.forEach { result ->
                     adapter.add(ItemProduct(result))

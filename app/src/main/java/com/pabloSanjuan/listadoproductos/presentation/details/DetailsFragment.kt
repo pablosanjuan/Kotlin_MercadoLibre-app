@@ -6,12 +6,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.pabloSanjuan.listadoproductos.MainApplication
+import com.pabloSanjuan.listadoproductos.data.models.Result
 import com.pabloSanjuan.listadoproductos.databinding.FragmentDetailsBinding
 import com.pabloSanjuan.listadoproductos.presentation.base.BaseFragment
 
 class DetailsFragment : BaseFragment<DetailsViewModel, FragmentDetailsBinding>() {
 
     private lateinit var viewModel: DetailsViewModel
+    lateinit var result: Result
+
+    companion object {
+        const val RESULT_DATA = "result"
+    }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -30,8 +36,7 @@ class DetailsFragment : BaseFragment<DetailsViewModel, FragmentDetailsBinding>()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = initViewModel()
-    }
-
-    companion object {
+        result = arguments?.getParcelable(RESULT_DATA) ?: Result()
+        viewModel.intanceResult(result)
     }
 }
