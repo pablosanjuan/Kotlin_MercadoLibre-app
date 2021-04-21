@@ -9,6 +9,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import com.pabloSanjuan.listadoproductos.MainApplication
+import com.pabloSanjuan.listadoproductos.R
 import com.pabloSanjuan.listadoproductos.databinding.FragmentHomeBinding
 import com.pabloSanjuan.listadoproductos.presentation.base.BaseFragment
 import com.pabloSanjuan.listadoproductos.presentation.home.items.ItemProduct
@@ -21,7 +22,7 @@ import com.xwray.groupie.ViewHolder
 class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
 
     private lateinit var viewModel: HomeViewModel
-    val adapter = GroupAdapter<ViewHolder>()
+    private val adapter = GroupAdapter<ViewHolder>()
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -45,9 +46,11 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
 //            override fun handleOnBackPressed() {
 //            }
 //        })
-        binding.recyclerView.layoutManager =
-            GridLayoutManager(requireContext(), 2)
-        binding.recyclerView.adapter = adapter
+        with(binding.recyclerView){
+            layoutManager =
+                GridLayoutManager(requireContext(), 2)
+            adapter = adapter
+        }
         if (viewModel.productsList.value != null) {
             itemsUIState(true)
         }
@@ -57,44 +60,48 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
 
 
     private fun itemsUIState(state: Boolean) {
-        binding.searchButton.visible = state
-        binding.recyclerView.visible = state
-        binding.bienvenidoText.visible = state.not()
-        binding.imageLottieArrow.visible = state.not()
-        binding.imageLottieSearch.visible = state.not()
+        binding.run {
+            searchButton.visible = state
+            recyclerView.visible = state
+            bienvenidoText.visible = state.not()
+            imageLottieArrow.visible = state.not()
+            imageLottieSearch.visible = state.not()
+        }
     }
 
     private fun initListeners() {
-        binding.inputEditSearch.apply {
-            setOnFocusChangeListener { _, hasFocus ->
-                if (hasFocus) {
-                    itemsUIState(true)
+        with(binding){
+            inputEditSearch.apply {
+                setOnFocusChangeListener { _, hasFocus ->
+                    if (hasFocus) {
+                        itemsUIState(true)
+                    }
                 }
             }
-        }
-        binding.searchButton.apply {
-            setOnClickListener {
-                binding.inputEditSearch.clearFocus()
-                activity?.hideKeyboard(it)
-                if (getInputText().isEmpty().not()) {
-                    viewModel.getData(query = getInputText())
-                    showLoading(true)
-                } else {
-                    context.toast("por favor introducir algo para buscar!")
+            searchButton.apply {
+                setOnClickListener {
+                    binding.inputEditSearch.clearFocus()
+                    activity?.hideKeyboard(it)
+                    if (getInputText().isEmpty().not()) {
+                        viewModel.getData(query = getInputText())
+                        showLoading(true)
+                    } else {
+                        context.toast(context.getString(R.string.palabra_a_buscar))
+                    }
                 }
             }
-        }
-        with(binding.imageLottieSearch) {
-            setAnimation("lottie_search.json")
-            repeatCount = 1
-            speed = 1f
-            playAnimation()
-        }
-        with(binding.imageLottieArrow) {
-            setAnimation("lottie_arrow.json")
-            loop(true)
-            speed = 1f
-            playAnimation()
+            imageLottieSearch.run {
+                setAnimation("lottie_search.json")
+                repeatCount = 1
+                speed = 1f
+                playAnimation()
+            }
+            imageLottieArrow.run {
+                setAnimation("lottie_arrow.json")
+                loop(true)
+                speed = 1f
+                playAnimation()
+            }
         }
     }
 
@@ -111,7 +118,7 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
                 }
             } else {
                 adapter.clear()
-                binding.bienvenidoText.text = "0 Resultados"
+                binding.bienvenidoText.text = requireContext().getString(R.string.palabra_a_buscar)
                 showNoResults()
             }
             showLoading(false)

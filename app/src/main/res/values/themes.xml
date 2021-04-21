@@ -16,13 +16,13 @@
         <item name="textAppearanceCaption">@style/TextAppearance.pabloSj.Caption</item>
         <item name="textAppearanceOverline">@style/TextAppearance.pabloSj.Overline</item>
 
-        <item name="toolbarStyle">@style/Widget.MaterialComponents.Toolbar.Primary</item>
         <item name="android:statusBarColor">?colorSurface</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:navigationBarColor" tools:ignore="NewApi">?colorSurface</item>
         <item name="android:windowLightNavigationBar" tools:ignore="NewApi">true</item>
         <item name="android:navigationBarDividerColor" tools:ignore="NewApi">?attr/colorControlHighlight</item>
-        <item name="android:windowContentTransitions">true</item>
+        <item name="lottie_skeleton_loading">@raw/lottie_skeleton_loading</item>
+        <item name="lottie_android_dev">@raw/lottie_android_dev</item>
     </style>
 
     <!-- Base application theme. -->
@@ -31,7 +31,7 @@
     <style name="CustomPabloSj.Default">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/blue_700</item>
-        <item name="colorPrimaryVariant">@color/grey_700</item>
+        <item name="colorPrimaryVariant">@color/lime_50</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Surface brand color. -->
         <item name="colorSurface">@color/grey_300</item>
@@ -46,11 +46,5 @@
         <!-- Customize your theme here. -->
         <item name="android:statusBarColor">?colorPrimary</item>
         <item name="android:windowLightStatusBar">true</item>
-
-        <item name="android:navigationBarColor" tools:ignore="NewApi">?colorSurface</item>
-        <item name="android:navigationBarDividerColor" tools:ignore="NewApi">?colorSurface</item>
-        <item name="android:windowLightNavigationBar" tools:ignore="NewApi">true</item>
-        <item name="android:windowContentTransitions">true</item>
-        <item name="lottie_skeleton_loading">@raw/lottie_skeleton_loading</item>
     </style>
 </resources>

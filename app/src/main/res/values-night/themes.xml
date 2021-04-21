@@ -2,8 +2,8 @@
     <!-- Base application theme. -->
     <style name="CustomPabloSj.Default">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/pink_700</item>
-        <item name="colorPrimaryVariant">@color/grey_700</item>
+        <item name="colorPrimary">@color/grey_600</item>
+        <item name="colorPrimaryVariant">@color/lime_50</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Surface brand color. -->
         <item name="colorSurface">@color/grey_900</item>
@@ -18,11 +18,5 @@
         <!-- Customize your theme here. -->
         <item name="android:statusBarColor">?colorPrimary</item>
         <item name="android:windowLightStatusBar">true</item>
-
-        <item name="android:navigationBarColor" tools:ignore="NewApi">?colorSurface</item>
-        <item name="android:navigationBarDividerColor" tools:ignore="NewApi">?colorSurface</item>
-        <item name="android:windowLightNavigationBar" tools:ignore="NewApi">true</item>
-        <item name="android:windowContentTransitions">true</item>
-        <item name="lottie_skeleton_loading">@raw/lottie_skeleton_loading</item>
     </style>
 </resources>

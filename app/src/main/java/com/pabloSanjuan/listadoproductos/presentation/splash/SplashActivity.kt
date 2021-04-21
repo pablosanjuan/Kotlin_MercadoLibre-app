@@ -1,9 +1,6 @@
 package com.pabloSanjuan.listadoproductos.presentation.splash
 
-import android.content.Context
 import android.os.Bundle
-import android.util.AttributeSet
-import android.view.View
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.Observer
 import com.pabloSanjuan.listadoproductos.MainApplication.Companion.appComponent
@@ -20,10 +17,9 @@ class SplashActivity : BaseActivity<SplashViewModel, ActivitySplashBinding>() {
     lateinit var themeProvider: ThemeProvider
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
         appComponent.inject(this)
-        ///val theme = themeProvider.getThemeFromPreferences()
-        ///AppCompatDelegate.setDefaultNightMode(theme)
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
+        super.onCreate(savedInstanceState)
         binding = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
         viewModel = initViewModel()

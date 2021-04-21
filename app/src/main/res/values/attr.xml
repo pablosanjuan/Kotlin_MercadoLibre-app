@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <attr name="lottie_skeleton_loading" format="reference" />
+    <attr name="lottie_android_dev" format="reference" />
+    <attr name="lottie_cambiar" format="reference" />
 </resources>
