@@ -1,10 +1,12 @@
 package com.pabloSanjuan.listadoproductos.presentation.config
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
+import com.pabloSanjuan.listadoproductos.MainApplication
 import com.pabloSanjuan.listadoproductos.R
 import com.pabloSanjuan.listadoproductos.databinding.FragmentConfigBinding
 import com.pabloSanjuan.listadoproductos.presentation.base.BaseFragment
@@ -13,6 +15,11 @@ import com.pabloSanjuan.listadoproductos.utils.ktx.toast
 class ConfigFragment : BaseFragment<ConfigViewModel, FragmentConfigBinding>() {
 
     private lateinit var viewModel: ConfigViewModel
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        MainApplication.appComponent.inject(this)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -59,20 +66,20 @@ class ConfigFragment : BaseFragment<ConfigViewModel, FragmentConfigBinding>() {
     }
 
     private fun initListeners() {
-        with(binding) {
-            themeLight.apply {
+        binding.let {
+            it.themeLight.apply {
                 setOnClickListener {
                     viewModel.setThemeIndex(0)
                     requireContext().toast(context.getString(R.string.light_mode))
                 }
             }
-            themeSystem.apply {
+            it.themeSystem.apply {
                 setOnClickListener {
                     viewModel.setThemeIndex(1)
                     requireContext().toast(context.getString(R.string.controlado_SO))
                 }
             }
-            themeDark.apply {
+            it.themeDark.apply {
                 setOnClickListener {
                     viewModel.setThemeIndex(2)
                     requireContext().toast(context.getString(R.string.dark_mode))

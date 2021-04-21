@@ -46,10 +46,10 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
 //            override fun handleOnBackPressed() {
 //            }
 //        })
-        with(binding.recyclerView){
-            layoutManager =
+        binding.recyclerView.let {
+            it.layoutManager =
                 GridLayoutManager(requireContext(), 2)
-            adapter = adapter
+            it.adapter = adapter
         }
         if (viewModel.productsList.value != null) {
             itemsUIState(true)
@@ -60,25 +60,25 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
 
 
     private fun itemsUIState(state: Boolean) {
-        binding.run {
-            searchButton.visible = state
-            recyclerView.visible = state
-            bienvenidoText.visible = state.not()
-            imageLottieArrow.visible = state.not()
-            imageLottieSearch.visible = state.not()
+        binding.let {
+            it.searchButton.visible = state
+            it.recyclerView.visible = state
+            it.bienvenidoText.visible = state.not()
+            it.imageLottieArrow.visible = state.not()
+            it.imageLottieSearch.visible = state.not()
         }
     }
 
     private fun initListeners() {
-        with(binding){
-            inputEditSearch.apply {
+        binding.let{
+            it.inputEditSearch.apply {
                 setOnFocusChangeListener { _, hasFocus ->
                     if (hasFocus) {
                         itemsUIState(true)
                     }
                 }
             }
-            searchButton.apply {
+            it.searchButton.apply {
                 setOnClickListener {
                     binding.inputEditSearch.clearFocus()
                     activity?.hideKeyboard(it)
@@ -90,13 +90,13 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
                     }
                 }
             }
-            imageLottieSearch.run {
+            it.imageLottieSearch.run {
                 setAnimation("lottie_search.json")
                 repeatCount = 1
                 speed = 1f
                 playAnimation()
             }
-            imageLottieArrow.run {
+            it.imageLottieArrow.run {
                 setAnimation("lottie_arrow.json")
                 loop(true)
                 speed = 1f
@@ -127,11 +127,11 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
 
     private fun showNoResults() {
         itemsUIState(false)
-        with(binding.imageLottieSearch) {
-            setAnimation("lottie_no_found.json")
-            repeatCount = 3
-            speed = 1f
-            playAnimation()
+        binding.imageLottieSearch.let {
+            it.setAnimation("lottie_no_found.json")
+            it.repeatCount = 3
+            it.speed = 1f
+            it.playAnimation()
         }
     }
 
