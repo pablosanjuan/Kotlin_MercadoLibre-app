@@ -121,7 +121,7 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
                 }
             } else {
                 adapter.clear()
-                binding.bienvenidoText.text = requireContext().getString(R.string.palabra_a_buscar)
+                binding.bienvenidoText.text = requireContext().getString(R.string.no_results)
                 showNoResults()
             }
             showLoading(false)

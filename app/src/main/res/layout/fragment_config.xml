@@ -46,8 +46,8 @@
             android:layout_width="@dimen/spacing_extra_large_element"
             android:layout_height="@dimen/spacing_extra_large_element"
             android:layout_marginTop="@dimen/spacing_small_medium_element"
-            android:scaleType="fitXY"
             android:background="@color/transparent"
+            android:scaleType="fitXY"
             android:src="@drawable/ic_baseline_light_mode_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/theme_system"
@@ -59,8 +59,8 @@
             android:layout_width="@dimen/spacing_extra_large_element"
             android:layout_height="@dimen/spacing_extra_large_element"
             android:layout_marginTop="@dimen/spacing_small_medium_element"
-            android:scaleType="fitXY"
             android:background="@color/transparent"
+            android:scaleType="fitXY"
             android:src="@drawable/ic_baseline_android_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/theme_dark"
@@ -72,8 +72,8 @@
             android:layout_width="@dimen/spacing_extra_large_element"
             android:layout_height="@dimen/spacing_extra_large_element"
             android:layout_marginTop="@dimen/spacing_small_medium_element"
-            android:scaleType="fitXY"
             android:background="@color/transparent"
+            android:scaleType="fitXY"
             android:src="@drawable/ic_baseline_dark_mode_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -82,7 +82,7 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:id="@+id/item_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -96,26 +96,44 @@
             android:layout_width="@dimen/item_config_image_size"
             android:layout_height="@dimen/item_config_image_size"
             android:scaleType="fitXY"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             app:lottie_autoPlay="true"
             app:lottie_loop="true"
             app:lottie_rawRes="?lottie_android_dev" />
 
         <TextView
-            android:id="@+id/info_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacing_extra_small_element"
-            android:maxLines="1"
-            android:textAppearance="?textAppearanceCaption"
+            android:layout_marginTop="@dimen/spacing_medium_element"
+            android:layout_marginBottom="@dimen/spacing_extra_small_element"
+            android:text="@string/pablo_sanjuan"
+            android:textAppearance="?textAppearanceBody1"
             android:textColor="?colorOnSurface"
-            app:layout_constraintBottom_toTopOf="@+id/item_info"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_extra_small_element"
+            android:text="@string/app_para_mercado_libre"
+            android:textAppearance="?textAppearanceBody2"
+            android:textColor="?colorPrimaryVariant"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_extra_small_element"
+            android:text="@string/_2021"
+            android:textAppearance="?textAppearanceCaption"
+            android:textColor="?colorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </LinearLayout>
 
 </LinearLayout>

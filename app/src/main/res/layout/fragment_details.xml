@@ -1,87 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.motion.widget.MotionLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="?colorSecondary"
-    tools:context=".presentation.details.DetailsFragment"
-    app:layoutDescription="@xml/fragment_details_scene">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ImageView
-        android:id="@+id/details_thumbnail"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toTopOf="@+id/content_container"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <data>
+        <variable
+            name="item"
+            type="com.pabloSanjuan.listadoproductos.presentation.details.DetailsViewModel.ProductModel" />
+    </data>
 
-    <LinearLayout
-        android:id="@+id/title_container"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/shape_details_title"
-        android:orientation="vertical"
-        android:gravity="center"
-        app:layout_constraintBottom_toTopOf="@+id/content_container"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+    <androidx.constraintlayout.motion.widget.MotionLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?colorSecondary"
+        app:layoutDescription="@xml/fragment_details_scene"
+        tools:context=".presentation.details.DetailsFragment">
 
-        <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/image_lottie_arrow"
-            android:translationY="-5dp"
-            android:layout_width="@dimen/spacing_medium_large_element"
-            android:layout_height="@dimen/spacing_medium_large_element"
-            android:rotation="-90"
+        <ImageView
+            android:id="@+id/details_thumbnail"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="fitCenter"
+            app:imageResource="@{item.result.thumbnail}"
+            app:layout_constraintBottom_toTopOf="@+id/content_container"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/input_search" />
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/title_container"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:translationY="-20dp"
-            android:text="@string/swipe"
-            android:textColor="?colorPrimary"
-            android:textAppearance="?textAppearanceCaption"/>
+            android:background="@drawable/shape_details_title"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/content_container"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
-        <TextView
-            android:id="@+id/tv_title"
-            android:layout_width="match_parent"
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/image_lottie_arrow"
+                android:layout_width="@dimen/spacing_medium_large_element"
+                android:layout_height="@dimen/spacing_medium_large_element"
+                android:rotation="-90"
+                android:translationY="-5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/input_search" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/swipe"
+                android:textAppearance="?textAppearanceCaption"
+                android:textColor="?colorPrimary"
+                android:translationY="-20dp" />
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/spacing_large_element"
+                android:layout_marginEnd="@dimen/spacing_large_element"
+                android:layout_marginBottom="@dimen/spacing_small_element"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="@{item.result.title}"
+                android:textAppearance="?textAppearanceHeadline6"
+                android:textColor="?colorOnSurface" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/content_container"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/search"
-            android:layout_marginStart="@dimen/spacing_large_element"
-            android:layout_marginEnd="@dimen/spacing_large_element"
-            android:layout_marginBottom="@dimen/spacing_small_element"
-            android:maxLines="2"
-            android:ellipsize="end"
-            android:textColor="?colorOnSurface"
-            android:textAppearance="?textAppearanceHeadline6"/>
+            android:background="?colorSecondary"
+            android:orientation="vertical"
+            android:padding="@dimen/spacing_medium_element"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
 
-    </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/precio"
+                android:textAppearance="?textAppearanceCaption"
+                android:textColor="?colorPrimary"
+                android:layout_marginBottom="@dimen/spacing_small_element" />
 
-    <LinearLayout
-        android:id="@+id/content_container"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="?colorSecondary"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="?colorOnSecondary"
+                android:layout_marginBottom="@dimen/spacing_medium_element"
+                android:text="@{item.result.price.toString()}"
+                android:textAppearance="?textAppearanceBody2" />
 
-        <TextView
-            android:id="@+id/tv_description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:lineHeight="26dp"
-            android:padding="16dp"
-            android:text="@string/Lorem_ipsum"
-            android:textSize="14sp" />
 
-    </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/descripcion"
+                android:textAppearance="?textAppearanceCaption"
+                android:textColor="?colorPrimary"
+                android:layout_marginBottom="@dimen/spacing_small_element" />
 
-</androidx.constraintlayout.motion.widget.MotionLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="?colorOnSecondary"
+                android:layout_marginBottom="@dimen/spacing_medium_element"
+                android:text="@string/Lorem_ipsum"
+                android:textAppearance="?textAppearanceBody2" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.motion.widget.MotionLayout>
+</layout>
