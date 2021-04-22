@@ -10,6 +10,9 @@
         android:name="com.pabloSanjuan.listadoproductos.presentation.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
+        <argument
+            android:name="result"
+            app:argType="com.pabloSanjuan.listadoproductos.data.models.Result" />
         <action
             android:id="@+id/action_homeFragment2_to_detailsFragment"
             app:destination="@id/detailsFragment" />

@@ -5,17 +5,23 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.pabloSanjuan.listadoproductos.MainApplication
+import com.pabloSanjuan.listadoproductos.data.models.Result
 import com.pabloSanjuan.listadoproductos.databinding.FragmentDetailsBinding
 import com.pabloSanjuan.listadoproductos.presentation.base.BaseFragment
-import dagger.android.support.AndroidSupportInjection
 
 class DetailsFragment : BaseFragment<DetailsViewModel, FragmentDetailsBinding>() {
 
     private lateinit var viewModel: DetailsViewModel
+    lateinit var result: Result
+
+    companion object {
+        const val RESULT_DATA = "result"
+    }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        AndroidSupportInjection.inject(this)
+        MainApplication.appComponent.inject(this)
     }
 
     override fun onCreateView(
@@ -30,8 +36,13 @@ class DetailsFragment : BaseFragment<DetailsViewModel, FragmentDetailsBinding>()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = initViewModel()
-    }
-
-    companion object {
+        result = arguments?.getParcelable(RESULT_DATA) ?: Result()
+        binding.item = DetailsViewModel.ProductModel(result)
+        binding.imageLottieArrow.run {
+            setAnimation("lottie_arrow.json")
+            loop(true)
+            speed = 1f
+            playAnimation()
+        }
     }
 }

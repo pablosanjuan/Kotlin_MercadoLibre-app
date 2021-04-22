@@ -1,16 +1,22 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.ListadoProductos" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="CustomPabloSj.Default">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorPrimary">@color/grey_600</item>
+        <item name="colorPrimaryVariant">@color/lime_50</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Surface brand color. -->
+        <item name="colorSurface">@color/grey_900</item>
+        <item name="colorOnSurface">@color/white_50</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_200</item>
-        <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="colorSecondary">@color/grey_A100</item>
+        <item name="colorSecondaryVariant">@color/black_900</item>
+        <item name="colorOnSecondary">@color/white_50</item>
+        <!-- Error brand color. -->
+        <item name="colorError">@color/red_600</item>
+        <item name="colorOnError">@color/grey_200</item>
         <!-- Customize your theme here. -->
+        <item name="android:statusBarColor">?colorPrimary</item>
+        <item name="android:windowLightStatusBar">true</item>
     </style>
 </resources>

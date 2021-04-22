@@ -1,12 +1,12 @@
 package com.pabloSanjuan.listadoproductos.presentation.base
 
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.pabloSanjuan.listadoproductos.data.di.factory.ViewModelFactory
-import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 
-abstract class BaseFragment <V, B> : DaggerFragment() {
+abstract class BaseFragment <V, B> : Fragment() {
 
     @Inject
     lateinit var viewModelFactory: ViewModelFactory

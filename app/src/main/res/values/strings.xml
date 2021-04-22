@@ -1,5 +1,30 @@
 <resources>
-    <string name="app_name">ListadoProductos</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="app_name">PabloSj App</string>
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="haz_una_busqueda">Haz una busqueda!</string>
+    <string name="bienvenido">Bienvenido!</string>
+    <string name="search">Search</string>
+    <string name="swipe">Swipe</string>
+    <string name="descripcion">Descripcion</string>
+    <string name="precio">Precio</string>
+    <string name="ver_mas">Ver Mas></string>
+    <string name="light_mode">Light Mode</string>
+    <string name="controlado_SO">Controlado por SO</string>
+    <string name="dark_mode">Dark Mode</string>
+    <string name="palabra_a_buscar">Por favor introducir palabra a buscar!</string>
+    <string name="no_results">0 Resultados</string>
+    <string name="Lorem_ipsum">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
+
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
+    <string name="pablo_sanjuan">\@PabloSanjuan</string>
+    <string name="app_para_mercado_libre">Android App para Mercado Libre</string>
+    <string name="theme_preferences_key" translatable="false">theme_preferences</string>
+    <string name="tema_actual">Tema Actual</string>
+    <string name="cabiar_tema_click_en_los_iconos">Cabiar tema (click en los iconos)</string>
+    <string name="_2021">2021</string>
 </resources>

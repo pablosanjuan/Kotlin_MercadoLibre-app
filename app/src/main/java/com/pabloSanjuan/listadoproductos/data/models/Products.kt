@@ -1,27 +1,17 @@
 package com.pabloSanjuan.listadoproductos.data.models
 
-
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
+import android.os.Parcelable
 
+@Parcelize
 data class Products(
-    @SerializedName("available_filters")
-    val availableFilters: List<AvailableFilter>,
-    @SerializedName("available_sorts")
-    val availableSorts: List<AvailableSort>,
-    @SerializedName("filters")
-    val filters: List<Filter>,
     @SerializedName("paging")
-    val paging: Paging,
+    val paging: Paging?,
     @SerializedName("query")
-    val query: String,
-    @SerializedName("related_results")
-    val relatedResults: List<Any>,
+    val query: String?, // Motorola G6
     @SerializedName("results")
-    val results: List<Result>,
-    @SerializedName("secondary_results")
-    val secondaryResults: List<Any>,
+    val results: List<Result>?,
     @SerializedName("site_id")
-    val siteId: String,
-    @SerializedName("sort")
-    val sort: Sort
-)
+    val siteId: String? // MLA
+) : Parcelable

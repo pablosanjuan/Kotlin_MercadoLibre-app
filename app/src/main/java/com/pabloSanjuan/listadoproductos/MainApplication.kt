@@ -1,12 +1,22 @@
 package com.pabloSanjuan.listadoproductos
 
+import android.app.Application
+import com.pabloSanjuan.listadoproductos.data.di.component.AppComponent
 import com.pabloSanjuan.listadoproductos.data.di.component.DaggerAppComponent
-import dagger.android.AndroidInjector
-import dagger.android.DaggerApplication
+import com.pabloSanjuan.listadoproductos.data.di.module.AppModule
 
-class MainApplication : DaggerApplication() {
-
-    override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
-        return DaggerAppComponent.builder().application(this).build()
+open class MainApplication : Application() {
+    companion object {
+        lateinit var appComponent: AppComponent
+            private set
     }
+
+    override fun onCreate() {
+        super.onCreate()
+        appComponent = this.initDagger()
+    }
+
+    private fun initDagger() = DaggerAppComponent.builder()
+        .appModule(AppModule(this))
+        .build()
 }

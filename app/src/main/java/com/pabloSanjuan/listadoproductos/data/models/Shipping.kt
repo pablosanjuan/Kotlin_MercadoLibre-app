@@ -1,17 +1,8 @@
 package com.pabloSanjuan.listadoproductos.data.models
 
+import kotlinx.android.parcel.Parcelize
+import android.os.Parcelable
 
-import com.google.gson.annotations.SerializedName
-
-data class Shipping(
-    @SerializedName("free_shipping")
-    val freeShipping: Boolean,
-    @SerializedName("logistic_type")
-    val logisticType: String,
-    @SerializedName("mode")
-    val mode: String,
-    @SerializedName("store_pick_up")
-    val storePickUp: Boolean,
-    @SerializedName("tags")
-    val tags: List<Any>
-)
+@Parcelize
+class Shipping(
+) : Parcelable

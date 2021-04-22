@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <!-- buttonNavBar textSize -->
-    <dimen name="nav_text_active">20sp</dimen>
-    <dimen name="nav_text_inactive">16sp</dimen>
-</resources>

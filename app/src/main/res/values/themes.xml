@@ -1,16 +1,50 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Theme.ListadoProductos" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Primary brand color. -->
-        <item name="colorPrimary">?colorSurface</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/white</item>
-        <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_700</item>
-        <item name="colorOnSecondary">@color/black</item>
-        <!-- Customize your theme here. -->
+
+    <style name="Base.Theme.CustomPabloSj" parent="@style/Theme.MaterialComponents.DayNight.NoActionBar">
+
+        <item name="textAppearanceHeadline1">@style/TextAppearance.pabloSj.Headline1</item>
+        <item name="textAppearanceHeadline2">@style/TextAppearance.pabloSj.Headline2</item>
+        <item name="textAppearanceHeadline3">@style/TextAppearance.pabloSj.Headline3</item>
+        <item name="textAppearanceHeadline4">@style/TextAppearance.pabloSj.Headline4</item>
+        <item name="textAppearanceHeadline5">@style/TextAppearance.pabloSj.Headline5</item>
+        <item name="textAppearanceHeadline6">@style/TextAppearance.pabloSj.Headline6</item>
+        <item name="textAppearanceSubtitle1">@style/TextAppearance.pabloSj.Subtitle1</item>
+        <item name="textAppearanceSubtitle2">@style/TextAppearance.pabloSj.Subtitle2</item>
+        <item name="textAppearanceBody1">@style/TextAppearance.pabloSj.Body1</item>
+        <item name="textAppearanceBody2">@style/TextAppearance.pabloSj.Body2</item>
+        <item name="textAppearanceButton">@style/TextAppearance.pabloSj.Button</item>
+        <item name="textAppearanceCaption">@style/TextAppearance.pabloSj.Caption</item>
+        <item name="textAppearanceOverline">@style/TextAppearance.pabloSj.Overline</item>
+
         <item name="android:statusBarColor">?colorSurface</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:navigationBarColor" tools:ignore="NewApi">?colorSurface</item>
+        <item name="android:windowLightNavigationBar" tools:ignore="NewApi">true</item>
+        <item name="android:navigationBarDividerColor" tools:ignore="NewApi">?colorSecondaryVariant</item>
+        <item name="lottie_skeleton_loading">@raw/lottie_skeleton_loading</item>
+        <item name="lottie_android_dev">@raw/lottie_android_dev</item>
+    </style>
+
+    <!-- Base application theme. -->
+    <style name="CustomPabloSj" parent="@style/Base.Theme.CustomPabloSj"/>
+
+    <style name="CustomPabloSj.Default">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/blue_700</item>
+        <item name="colorPrimaryVariant">@color/lime_50</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Surface brand color. -->
+        <item name="colorSurface">@color/grey_300</item>
+        <item name="colorOnSurface">@color/black_900</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/white</item>
+        <item name="colorSecondaryVariant">@color/grey_400</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Error brand color. -->
+        <item name="colorError">@color/red_600</item>
+        <item name="colorOnError">@color/grey_200</item>
+        <!-- Customize your theme here. -->
+        <item name="android:statusBarColor">?colorPrimary</item>
         <item name="android:windowLightStatusBar">true</item>
     </style>
 </resources>

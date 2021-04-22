@@ -3,6 +3,7 @@ package com.pabloSanjuan.listadoproductos.presentation.home
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.pabloSanjuan.listadoproductos.data.models.Products
 import com.pabloSanjuan.listadoproductos.data.models.Result
 import com.pabloSanjuan.listadoproductos.domain.usescases.SearchUseCase
 import kotlinx.coroutines.Dispatchers
@@ -15,18 +16,18 @@ class HomeViewModel @Inject constructor(
     private val searchUseCase: SearchUseCase
 ): ViewModel() {
 
-    val productsList = MutableLiveData<List<Result>>()
+    val productsList = MutableLiveData<Products>()
 
-    fun getData() {
+    fun getData(query: String) {
         val params = HashMap<String, String>()
-        params["category"] = "MLA1055"
+        params["q"] = query
 
         viewModelScope.launch {
             withContext(Dispatchers.IO) {
                 val response = searchUseCase.invoke(SearchUseCase.Params(params))
                 response.let {
                     if(it.isSuccessful){
-                        productsList.postValue(it.body()?.results)
+                        productsList.postValue(it.body())
                         this@launch.cancel()
                     }else{
                         it.errorBody()

@@ -14,7 +14,6 @@ interface ProductsService{
         @Query("category") category: String
     ): Response<Products>
 
-
     //https://api.mercadolibre.com/sites/MLA/search?q=Motorola%20G6
     @GET("sites/MLA/search?")
     suspend fun searchByQuery(
