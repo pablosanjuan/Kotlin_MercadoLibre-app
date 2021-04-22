@@ -19,8 +19,17 @@
         android:layout_height="wrap_content"
         android:layout_width="0dp"
         android:layout_margin="@dimen/stroke_width"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/item3"
         app:layout_constraintStart_toEndOf="@+id/item1"
+        layout="@layout/skeleton_loading_item" />
+
+    <include
+        android:id="@+id/item3"
+        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_margin="@dimen/stroke_width"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/item2"
         layout="@layout/skeleton_loading_item" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

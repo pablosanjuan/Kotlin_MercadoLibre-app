@@ -23,6 +23,9 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
 
     private lateinit var viewModel: HomeViewModel
     private val adapter = GroupAdapter<ViewHolder>()
+    companion object{
+        const val COLUMNS_NUMBER = 3
+    }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -48,7 +51,7 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
 //        })
         binding.recyclerView.let {
             it.layoutManager =
-                GridLayoutManager(requireContext(), 2)
+                GridLayoutManager(requireContext(), COLUMNS_NUMBER)
             it.adapter = adapter
         }
         if (viewModel.productsList.value != null) {

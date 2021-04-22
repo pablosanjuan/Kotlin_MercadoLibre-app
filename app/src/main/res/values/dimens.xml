@@ -5,10 +5,6 @@
     <dimen name="nav_text_active">16sp</dimen>
     <dimen name="nav_text_inactive">10sp</dimen>
 
-    <!-- margin screen -->
-    <dimen name="screen_horizontal_margin">16dp</dimen>
-    <dimen name="screen_vertical_margin">16dp</dimen>
-
     <!-- spaces -->
     <dimen name="spacing_tiny_element">2dp</dimen>
     <dimen name="spacing_extra_small_element">4dp</dimen>

@@ -48,8 +48,9 @@
         android:layout_marginTop="@dimen/spacing_extra_small_element"
         android:layout_marginBottom="@dimen/spacing_extra_small_element"
         android:text="@string/ver_mas"
-        android:textAppearance="?textAppearanceCaption"
-        android:textColor="?colorPrimary"
+        android:textAppearance="?textAppearanceButton"
+        android:textColor="?colorOnSurface"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/separator" />
 

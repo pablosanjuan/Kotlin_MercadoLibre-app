@@ -20,7 +20,7 @@
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:navigationBarColor" tools:ignore="NewApi">?colorSurface</item>
         <item name="android:windowLightNavigationBar" tools:ignore="NewApi">true</item>
-        <item name="android:navigationBarDividerColor" tools:ignore="NewApi">?attr/colorControlHighlight</item>
+        <item name="android:navigationBarDividerColor" tools:ignore="NewApi">?colorSecondaryVariant</item>
         <item name="lottie_skeleton_loading">@raw/lottie_skeleton_loading</item>
         <item name="lottie_android_dev">@raw/lottie_android_dev</item>
     </style>

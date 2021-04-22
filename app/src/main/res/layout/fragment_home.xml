@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fragment_background"
-    android:padding="@dimen/screen_horizontal_margin"
+    android:paddingTop="@dimen/spacing_small_element"
+    android:paddingStart="@dimen/spacing_small_element"
+    android:paddingEnd="@dimen/spacing_small_element"
     tools:context=".presentation.home.HomeFragment">
 
     <TextView

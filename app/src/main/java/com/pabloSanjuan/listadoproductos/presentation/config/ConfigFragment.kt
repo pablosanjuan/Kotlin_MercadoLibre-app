@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import com.pabloSanjuan.listadoproductos.MainApplication
 import com.pabloSanjuan.listadoproductos.R
@@ -47,21 +48,25 @@ class ConfigFragment : BaseFragment<ConfigViewModel, FragmentConfigBinding>() {
 
     private fun setThemeUI(themeIndex: Int) {
         clearThemeUI()
-        with(requireContext().resources.getColor(R.color.lime_50)) {
-            when (themeIndex) {
-                -1 -> binding.themeSystem.setColorFilter(this)
-                1 -> binding.themeLight.setColorFilter(this)
-                2 -> binding.themeDark.setColorFilter(this)
-                else -> binding.themeSystem.setColorFilter(this)
+        context?.let {
+            with(ContextCompat.getColor(it, R.color.lime_50)) {
+                when (themeIndex) {
+                    -1 -> binding.themeSystem.setColorFilter(this)
+                    1 -> binding.themeLight.setColorFilter(this)
+                    2 -> binding.themeDark.setColorFilter(this)
+                    else -> binding.themeSystem.setColorFilter(this)
+                }
             }
         }
     }
 
     private fun clearThemeUI() {
-        with(requireContext().resources.getColor(R.color.grey_600)) {
-            binding.themeLight.setColorFilter(this)
-            binding.themeSystem.setColorFilter(this)
-            binding.themeDark.setColorFilter(this)
+        context?.let {
+            with(ContextCompat.getColor(it, R.color.grey_600)) {
+                binding.themeLight.setColorFilter(this)
+                binding.themeSystem.setColorFilter(this)
+                binding.themeDark.setColorFilter(this)
+            }
         }
     }
 
