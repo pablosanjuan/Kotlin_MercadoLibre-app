@@ -2,7 +2,9 @@ package com.pabloSanjuan.listadoproductos.presentation.base
 
 import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
 import android.os.Bundle
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.observe
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
@@ -10,12 +12,15 @@ import com.pabloSanjuan.listadoproductos.MainApplication.Companion.appComponent
 import com.pabloSanjuan.listadoproductos.R
 import com.pabloSanjuan.listadoproductos.databinding.ActivityMainBinding
 import com.pabloSanjuan.listadoproductos.utils.ktx.setupWithNavController
+import javax.inject.Inject
 
 class MainActivity : BaseActivity<MainActivityViewModel, ActivityMainBinding>(),
     NavController.OnDestinationChangedListener {
 
     private var currentNavController: NavController? = null
     private lateinit var navGraphIds: List<Int>
+    @Inject
+    lateinit var context: Context
 
     companion object {
         var currentMenuId: Int =  R.id.search_navigation

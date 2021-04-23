@@ -22,6 +22,7 @@
 
     <!-- item_sizes -->
     <dimen name="item_image_size">150dp</dimen>
+    <dimen name="message_image_size">100dp</dimen>
     <dimen name="item_size">120dp</dimen>
     <dimen name="item_config_image_size">90dp</dimen>
     <dimen name="stroke_width">1dp</dimen>

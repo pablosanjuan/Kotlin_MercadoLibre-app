@@ -14,18 +14,18 @@ import javax.inject.Singleton
 @Module
 class NetModule {
 
-    @Provides
     @Singleton
-    internal fun provideOkHttpClient(): OkHttpClient {
+    @Provides
+    fun provideOkHttpClient(): OkHttpClient {
         val httpClientBuilder = OkHttpClient.Builder()
         httpClientBuilder.readTimeout(Constants.TIME_OUT_READ, TimeUnit.SECONDS)
         httpClientBuilder.connectTimeout(Constants.TIME_OUT_CONNECT, TimeUnit.SECONDS)
         return httpClientBuilder.build()
     }
 
-    @Provides
     @Singleton
-    internal fun provideHttpClient(okHttpClient: OkHttpClient): Retrofit {
+    @Provides
+    fun provideHttpClient(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder().baseUrl(Constants.BASE_URL)
             .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create())
@@ -34,8 +34,7 @@ class NetModule {
     }
 
     @Provides
-    @Singleton
-    fun provideProductsService(retrofit: Retrofit): ProductsService {
+    fun provideAppService(retrofit: Retrofit): ProductsService {
         return retrofit.create(ProductsService::class.java)
     }
 }
