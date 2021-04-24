@@ -3,6 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!--
+    /**
+    * Pablo Sanjuan
+    *
+    * Implementacion con  dataBinding
+    *
+    * Implementacion con Motion Layout
+    */
+
+    -->
+
     <data>
         <import type="android.view.View" />
         <variable

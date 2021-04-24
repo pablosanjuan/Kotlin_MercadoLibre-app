@@ -35,4 +35,6 @@
     <string name="tema_actual">Tema Actual</string>
     <string name="cabiar_tema_click_en_los_iconos">Cabiar tema (click en los iconos)</string>
     <string name="_2021">2021</string>
+    <string name="home">home</string>
+    <string name="settings">Settings</string>
 </resources>
