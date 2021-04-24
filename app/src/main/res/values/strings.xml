@@ -8,6 +8,7 @@
     <string name="swipe">Swipe</string>
     <string name="descripcion">Descripcion</string>
     <string name="precio">Precio</string>
+    <string name="seller">Vendedor</string>
     <string name="ver_mas">Ver Mas></string>
     <string name="light_mode">Light Mode</string>
     <string name="controlado_SO">Controlado por SO</string>
@@ -15,7 +16,14 @@
     <string name="palabra_a_buscar">Por favor introducir palabra a buscar!</string>
     <string name="no_results">0 Resultados</string>
     <string name="no_internet">No Hay Internet</string>
-    <string name="Lorem_ipsum">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
+    <string name="Lorem_ipsum">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+        Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+        It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+        It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+    Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+        It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+        It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+    </string>
 
     <!--
     This string is used for square devices and overridden by hello_world in

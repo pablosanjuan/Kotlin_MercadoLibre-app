@@ -1,12 +1,11 @@
 package com.pabloSanjuan.listadoproductos.data.models
 
-
-import kotlinx.android.parcel.Parcelize
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-class Seller(
-    @SerializedName("eshop")
-    val eshop: Eshop? = Eshop(),
+class Eshop(
+    @SerializedName("nick_name")
+    val nick_name: String? = ""
 ) : Parcelable
