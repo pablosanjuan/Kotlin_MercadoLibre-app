@@ -46,6 +46,8 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/input_edit_search"
+            android:inputType="text"
+            android:imeOptions="actionSearch"
             style="@style/TextInputEditText_SearchInput"
             android:hint="@string/haz_una_busqueda" />
     </com.google.android.material.textfield.TextInputLayout>

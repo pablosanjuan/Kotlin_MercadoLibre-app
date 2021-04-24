@@ -30,9 +30,6 @@ class HomeViewModel @Inject constructor(
                 withContext(Dispatchers.IO) {
                     val response = searchUseCase.invoke(SearchUseCase.Params(params))
                     response.let {
-                        when{
-
-                        }
                         if (it.isSuccessful) {
                             _productsList.postValue(it.body())
                             this@launch.cancel()

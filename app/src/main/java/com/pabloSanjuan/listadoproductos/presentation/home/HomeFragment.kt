@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import com.pabloSanjuan.listadoproductos.MainApplication
@@ -18,6 +19,7 @@ import com.pabloSanjuan.listadoproductos.utils.ktx.toast
 import com.pabloSanjuan.listadoproductos.utils.ktx.visible
 import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.ViewHolder
+import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
 
@@ -77,23 +79,16 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
                     }
                 }
             }
+            it.inputEditSearch.setOnEditorActionListener { _, p1, _ ->
+                if (p1 == EditorInfo.IME_ACTION_SEARCH){
+                    doSearch(input_edit_search)
+                }
+                true
+            }
             it.searchButton.apply {
                 setOnClickListener { view ->
                     binding.inputEditSearch.clearFocus()
-                    activity?.hideKeyboard(view)
-                    if (getInputText().isEmpty().not()) {
-                        adapter.clear()
-                        context?.let { context ->
-                            val isOnline = isNetworkOnline(context)
-                            viewModel.getData(
-                                query = getInputText(),
-                                isInternetAvailable = isOnline
-                            )
-                        }
-                        showLoading(true)
-                    } else {
-                        context.toast(context.getString(R.string.palabra_a_buscar))
-                    }
+                    doSearch(view)
                 }
             }
             it.imageLottieSearch.run {
@@ -107,6 +102,25 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
                 repeatCount = ValueAnimator.INFINITE
                 speed = 1f
                 playAnimation()
+            }
+        }
+    }
+
+    private fun doSearch(view: View = View(requireContext())) {
+        activity?.hideKeyboard(view)
+        if (getInputText().isEmpty().not()) {
+            adapter.clear()
+            context?.let { context ->
+                val isOnline = isNetworkOnline(context)
+                viewModel.getData(
+                    query = getInputText(),
+                    isInternetAvailable = isOnline
+                )
+            }
+            showLoading(true)
+        } else {
+            context?.let {
+                it.toast(it.getString(R.string.palabra_a_buscar))
             }
         }
     }

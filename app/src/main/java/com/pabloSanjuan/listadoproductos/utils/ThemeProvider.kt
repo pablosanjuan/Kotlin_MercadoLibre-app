@@ -13,7 +13,7 @@ class ThemeProvider(private val context: Context) {
 
     fun getThemeFromPreferences(): Int {
         val selectedTheme =
-            sharedPreferences.getInt(context.getString(R.string.theme_preferences_key), 0)
+            sharedPreferences.getInt(context.getString(R.string.theme_preferences_key), 1)
         return getTheme(selectedTheme)
     }
 

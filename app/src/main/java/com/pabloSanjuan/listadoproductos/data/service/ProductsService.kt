@@ -8,12 +8,6 @@ import retrofit2.http.QueryMap
 
 interface ProductsService{
 
-    //https://api.mercadolibre.com/sites/MLA/search?category=MLA1055
-    @GET("sites/MLA/search?limit=1")
-    suspend fun searchByCategory(
-        @Query("category") category: String
-    ): Response<Products>
-
     //https://api.mercadolibre.com/sites/MLA/search?q=Motorola%20G6
     @GET("sites/MLA/search?")
     suspend fun searchByQuery(
