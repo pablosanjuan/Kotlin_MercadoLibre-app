@@ -21,6 +21,19 @@ import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.ViewHolder
 import kotlinx.android.synthetic.main.fragment_home.*
 
+/**
+ * Pablo Sanjuan
+ *
+ * Contiene la logica de la funcionalidad principal de la APP
+ *
+ * - hago uso de MVVM para mantener las instancias de los resusltados al girar pantalla
+ * - uso libreria GROUPIE para instanciar el adapter del recyclerView
+ * - contiene la logica para mostrar errores al usuario
+ * - cotiene logica para mostrar los resultados al usuario
+ * - permite al usuario navegar por los resultados
+ *
+ */
+
 class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
 
     private lateinit var viewModel: HomeViewModel
@@ -81,6 +94,7 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
             }
             it.inputEditSearch.setOnEditorActionListener { _, p1, _ ->
                 if (p1 == EditorInfo.IME_ACTION_SEARCH){
+                    binding.inputEditSearch.clearFocus()
                     doSearch(input_edit_search)
                 }
                 true

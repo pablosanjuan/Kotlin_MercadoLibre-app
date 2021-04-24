@@ -8,6 +8,12 @@ import retrofit2.http.QueryMap
 
 interface ProductsService{
 
+    /**
+     * Pablo Sanjuan
+     *
+     * Aqui definimos las url a las que haremos als peticiones
+     */
+
     //https://api.mercadolibre.com/sites/MLA/search?q=Motorola%20G6
     @GET("sites/MLA/search?")
     suspend fun searchByQuery(

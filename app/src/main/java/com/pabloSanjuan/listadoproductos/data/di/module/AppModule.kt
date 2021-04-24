@@ -6,6 +6,13 @@ import com.pabloSanjuan.listadoproductos.utils.ThemeProvider
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
+
+/**
+ * Pablo Sanjuan
+ *
+ * Modulo para proveer instacias genericas a la app
+ */
+
 @Module
 class AppModule(private val application: Application) {
 

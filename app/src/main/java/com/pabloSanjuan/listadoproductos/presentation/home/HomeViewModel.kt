@@ -17,6 +17,14 @@ class HomeViewModel @Inject constructor(
     private val searchUseCase: SearchUseCase
 ) : ViewModel() {
 
+    /**
+     * Pablo Sanjuan
+     *
+     * - Hago uso de coroutines para hacer en backGround las peticiones a la Api
+     * - Cree un bloque sencillo de manejo de excepcoines
+     * - Por medio de LiveData hago comunicacion con la UI de la logica de negocio
+     */
+
     private val _serverIssueLiveData : MutableLiveData<String> = MutableLiveData()
     val serverIssueLiveData: LiveData<String> get() = _serverIssueLiveData
 

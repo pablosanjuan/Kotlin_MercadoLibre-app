@@ -9,6 +9,21 @@ import androidx.lifecycle.ViewModelProvider
 import com.pabloSanjuan.listadoproductos.data.di.factory.ViewModelFactory
 import javax.inject.Inject
 
+/**
+ * Pablo Sanjuan
+ *
+ * Clase base para los fragments, tener mayor control y evitar escribir tanto codigo redundante
+ * dentro de las diferentes activities
+ *
+ * Contiene:
+ *
+ * - Aqui recibo parametros genericos para construir ViewModels y ViewBindings de las difrentes
+ * fragments
+ *
+ * - Cree un metodo para poder analizar la disponibilidad de internet en los diferentes
+ * fragments
+ */
+
 abstract class BaseFragment <V, B> : Fragment() {
 
     @Inject

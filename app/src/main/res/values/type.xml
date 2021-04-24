@@ -3,6 +3,19 @@
 
     <!--Typography-->
 
+    <!--
+    /**
+    * Pablo Sanjuan
+    * Haciendo uso de la documentacion de MATERIAL DESIGN y Google
+    * defino los parametros a usar en los styles que maneja la App
+    *
+    * En esta clase defino los TextApparience de la App
+    * segun la docuemntacion de MaterialDesign seolo se feinien estos tamaños y estlos
+    * de texto en toda la App
+    */
+
+    -->
+
     <!--Material’s type system supports 13 categories that, when combined, form the typescale. -->
 
     <style name="TextAppearance.pabloSj.Headline1" parent="TextAppearance.MaterialComponents.Headline1">

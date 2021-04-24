@@ -12,6 +12,12 @@ import javax.inject.Inject
 
 class SplashActivity : BaseActivity<SplashViewModel, ActivitySplashBinding>() {
 
+    /**
+     * Pablo Sanjuan
+     *
+     * - Cree una instancia del AppDeegate para majeo de THEMES de toda la app
+     */
+
     private lateinit var viewModel: SplashViewModel
     @Inject
     lateinit var themeProvider: ThemeProvider

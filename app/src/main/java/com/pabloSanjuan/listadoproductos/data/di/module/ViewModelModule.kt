@@ -13,6 +13,13 @@ import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
 
+
+/**
+ * Pablo Sanjuan
+ *
+ * Modulo para definir los ViewModels que seran inyectados a traves del patron Factory
+ */
+
 @Module
 abstract class ViewModelModule {
 

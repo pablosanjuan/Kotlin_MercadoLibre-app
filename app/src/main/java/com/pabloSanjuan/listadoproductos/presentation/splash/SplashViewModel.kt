@@ -10,6 +10,15 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
+/**
+ * Pablo Sanjuan
+ *
+ * - Por medio de una Suspend Function hago que la app se quede en segundo plano
+ *  realizando un delay para crear un splash
+ *
+ * - el Job de la coroutine se destruye con el ciclo de vida del VM
+ */
+
 class SplashViewModel @Inject constructor(): ViewModel() {
 
     private val _productsList : MutableLiveData<Boolean> = MutableLiveData()

@@ -5,6 +5,13 @@ import com.pabloSanjuan.listadoproductos.data.service.ProductsService
 import com.pabloSanjuan.listadoproductos.domain.repositories.SearchRepository
 import retrofit2.Response
 
+/**
+ * Pablo Sanjuan
+ *
+ * Implementacion del patron Repository que permite crear instancias del Service
+ * y crean un puente entre la capa de Dominio y de Data
+ */
+
 class SearchRepositoryImpl (
     private val productsService: ProductsService
 ): SearchRepository {

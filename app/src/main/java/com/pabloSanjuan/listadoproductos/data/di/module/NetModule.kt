@@ -11,6 +11,12 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
+/**
+ * Pablo Sanjuan
+ *
+ * Modulo de creacion de instancias de conexion para Retrofit
+ */
+
 @Module
 class NetModule {
 

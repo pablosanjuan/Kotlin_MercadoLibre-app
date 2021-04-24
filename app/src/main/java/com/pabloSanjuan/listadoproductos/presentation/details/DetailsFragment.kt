@@ -12,6 +12,15 @@ import com.pabloSanjuan.listadoproductos.presentation.base.BaseFragment
 
 class DetailsFragment : BaseFragment<DetailsViewModel, FragmentDetailsBinding>() {
 
+    /**
+     * Pablo Sanjuan
+     *
+     * Contiene la logica recibir a traves de NAVIGATION ARGS el objeto del resultado
+     *
+     * - implemente viewBinding directo en el xml y evitar asginar todos los parametros desde
+     * la vista
+     */
+
     private lateinit var viewModel: DetailsViewModel
     lateinit var result: Result
 

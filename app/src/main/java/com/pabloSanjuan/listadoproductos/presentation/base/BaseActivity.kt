@@ -6,6 +6,13 @@ import androidx.lifecycle.ViewModelProvider
 import com.pabloSanjuan.listadoproductos.data.di.factory.ViewModelFactory
 import javax.inject.Inject
 
+/**
+ * Pablo Sanjuan
+ *
+ * Clase base para las actividades, tener mayor control y evitar escribir tanto codigo redundante
+ * dentro de los diferentes fragments
+ */
+
 abstract class BaseActivity <V, B> : AppCompatActivity() {
 
     @Inject

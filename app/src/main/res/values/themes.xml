@@ -1,5 +1,18 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
+<!--
+    /**
+    * Pablo Sanjuan
+    * Haciendo uso de la documentacion de MATERIAL DESIGN y Google
+    * defino los parametros a usar en los styles que maneja la App
+    *
+    * En esta clase defino los estilos del Base style y del light mode
+    */
+
+    -->
+
+
+
     <style name="Base.Theme.CustomPabloSj" parent="@style/Theme.MaterialComponents.DayNight.NoActionBar">
 
         <item name="textAppearanceHeadline1">@style/TextAppearance.pabloSj.Headline1</item>

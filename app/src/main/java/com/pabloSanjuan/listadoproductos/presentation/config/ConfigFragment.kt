@@ -13,6 +13,14 @@ import com.pabloSanjuan.listadoproductos.databinding.FragmentConfigBinding
 import com.pabloSanjuan.listadoproductos.presentation.base.BaseFragment
 import com.pabloSanjuan.listadoproductos.utils.ktx.toast
 
+/**
+ * Pablo Sanjuan
+ *
+ * Fragment que maneja la UI para THEMES
+ *
+ * creo metodos para cambiar el estado de los THEMES
+ */
+
 class ConfigFragment : BaseFragment<ConfigViewModel, FragmentConfigBinding>() {
 
     private lateinit var viewModel: ConfigViewModel

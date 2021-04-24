@@ -14,6 +14,16 @@ import com.pabloSanjuan.listadoproductos.databinding.ActivityMainBinding
 import com.pabloSanjuan.listadoproductos.utils.ktx.setupWithNavController
 import javax.inject.Inject
 
+/**
+ * Pablo Sanjuan
+ *
+ * Clase principal que contiene a todos los fragments
+ *
+ * Contiene:
+ * - Logica de NavComponent
+ * - Logica para mantener el estado de los Graphs
+ */
+
 class MainActivity : BaseActivity<MainActivityViewModel, ActivityMainBinding>(),
     NavController.OnDestinationChangedListener {
 

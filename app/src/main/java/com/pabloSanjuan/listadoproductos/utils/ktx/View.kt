@@ -11,6 +11,14 @@ import com.bumptech.glide.Glide
 import com.pabloSanjuan.listadoproductos.R
 import kotlinx.android.synthetic.main.item_product.view.*
 
+/**
+ * Pablo Sanjuan
+ *
+ * Extensionn Functions para manejar funcionalidaes genericas de las diferentes Views
+ *
+ * Tambien cree un binding Adapter para manejar funsionalidades desde xml y dataBinding
+ */
+
 fun Context.hideKeyboard(view: View) {
     val inputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
     inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
