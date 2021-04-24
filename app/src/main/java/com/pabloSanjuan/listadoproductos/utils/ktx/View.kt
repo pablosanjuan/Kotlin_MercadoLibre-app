@@ -22,7 +22,7 @@ var View.visible: Boolean
         this.visibility = if (isVisible) View.VISIBLE else View.GONE
     }
 
-fun Context.toast(message: String, duration: Int = Toast.LENGTH_SHORT) {
+fun Context.toast(message: String, duration: Int = Toast.LENGTH_LONG) {
     Toast.makeText(this, message, duration).show()
 }
 

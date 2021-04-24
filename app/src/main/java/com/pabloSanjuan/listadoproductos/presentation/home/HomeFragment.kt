@@ -92,8 +92,8 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
                 }
             }
             it.imageLottieSearch.run {
-                setAnimation("lottie_search.json")
-                repeatCount = 1
+                setAnimation("lottie_hello.json")
+                repeatCount = ValueAnimator.INFINITE
                 speed = 1f
                 playAnimation()
             }
@@ -134,6 +134,7 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
             productsList.observe(viewLifecycleOwner, Observer {
                 if (it.paging?.total != 0) {
                     adapter.clear()
+                    itemsUIState(true)
                     it?.results?.forEach { result ->
                         adapter.add(ItemProduct(result))
                     }
@@ -143,9 +144,18 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
                 }
                 showLoading(false)
             })
-            internetIssueLiveData.observe(viewLifecycleOwner, Observer {
-                showUIError(requireContext().getString(R.string.no_internet))
+            noInternetLiveData.observe(viewLifecycleOwner, Observer {
+                showUIError(it)
             })
+            serverIssueLiveData.observe(viewLifecycleOwner, Observer {
+                showUILog(it)
+            })
+        }
+    }
+
+    private fun showUILog(msg: String) {
+        context?.let {
+            it.toast(msg)
         }
     }
 
@@ -154,7 +164,7 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
         binding.messagesText.text = msg
         showLoading(false)
         binding.imageLottieSearch.let {
-            it.setAnimation("lottie_no_found.json")
+            it.setAnimation("lottie_search.json")
             it.repeatCount = 3
             it.speed = 1f
             it.playAnimation()
