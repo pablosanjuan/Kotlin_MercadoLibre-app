@@ -23,8 +23,6 @@
 ![Screenshot_20210424-015929](https://user-images.githubusercontent.com/11621609/115950476-11c8e300-a4a1-11eb-8416-df8d40c631c0.png)
 ![Screenshot_20210424-015936](https://user-images.githubusercontent.com/11621609/115950478-1392a680-a4a1-11eb-9947-a1adcd9e1740.png)
 ![Screenshot_20210424-020111](https://user-images.githubusercontent.com/11621609/115950479-14c3d380-a4a1-11eb-9bc1-0b6b42bfebcb.png)
-<img width="1312" alt="Screen Shot 2021-03-02 at 11 43 54 AM" src="https://user-images.githubusercontent.com/11621609/115950481-15f50080-a4a1-11eb-97a1-a5a72255434d.png">
-
 
 ## License
 GNU GENERAL PUBLIC LICENSE
