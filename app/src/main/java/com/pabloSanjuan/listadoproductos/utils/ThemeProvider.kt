@@ -7,13 +7,20 @@ import androidx.appcompat.app.AppCompatDelegate
 import com.pabloSanjuan.listadoproductos.R
 import java.security.InvalidParameterException
 
+/**
+ * Pablo Sanjuan
+ *
+ * Clase inyectada para manejar la configuracion de los themes y el AppDelegate
+ */
+
+
 class ThemeProvider(private val context: Context) {
 
     private val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
 
     fun getThemeFromPreferences(): Int {
         val selectedTheme =
-            sharedPreferences.getInt(context.getString(R.string.theme_preferences_key), 0)
+            sharedPreferences.getInt(context.getString(R.string.theme_preferences_key), 1)
         return getTheme(selectedTheme)
     }
 

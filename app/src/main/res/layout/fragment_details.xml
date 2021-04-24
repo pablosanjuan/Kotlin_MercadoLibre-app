@@ -3,7 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!--
+    /**
+    * Pablo Sanjuan
+    *
+    * Implementacion con  dataBinding
+    *
+    * Implementacion con Motion Layout
+    */
+
+    -->
+
     <data>
+        <import type="android.view.View" />
         <variable
             name="item"
             type="com.pabloSanjuan.listadoproductos.presentation.details.DetailsViewModel.ProductModel" />
@@ -71,7 +83,7 @@
 
         </LinearLayout>
 
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/content_container"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -82,40 +94,80 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/precio"
-                android:textAppearance="?textAppearanceCaption"
-                android:textColor="?colorPrimary"
-                android:layout_marginBottom="@dimen/spacing_small_element" />
-
-            <TextView
+            <LinearLayout
+                android:id="@+id/tags"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="?colorOnSecondary"
+                android:layout_marginBottom="@dimen/spacing_small_element"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/precio"
+                    android:layout_weight="1"
+                    android:textAppearance="?textAppearanceCaption"
+                    android:textColor="?colorPrimary" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/seller"
+                    android:visibility="@{item.result.seller.eshop.nick_name==`` ? View.GONE : View.VISIBLE }"
+                    android:layout_weight="1"
+                    android:textAppearance="?textAppearanceCaption"
+                    android:textColor="?colorPrimary" />
+            </LinearLayout>
+            <!-- .............................. -->
+            <LinearLayout
+                android:id="@+id/values"
+                android:layout_below="@+id/tags"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/spacing_medium_element"
-                android:text="@{item.result.price.toString()}"
-                android:textAppearance="?textAppearanceBody2" />
+                android:orientation="horizontal">
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:text="@{item.result.price.toString()}"
+                    android:textAppearance="?textAppearanceBody2"
+                    android:textColor="?colorOnSecondary" />
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:text="@{item.result.seller.eshop.nick_name}"
+                    android:textAppearance="?textAppearanceBody2"
+                    android:textColor="?colorOnSecondary" />
+            </LinearLayout>
+            <!-- .............................. -->
             <TextView
+                android:id="@+id/tag_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/spacing_small_element"
                 android:text="@string/descripcion"
+                android:layout_below="@+id/values"
                 android:textAppearance="?textAppearanceCaption"
-                android:textColor="?colorPrimary"
-                android:layout_marginBottom="@dimen/spacing_small_element" />
+                android:textColor="?colorPrimary" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="?colorOnSecondary"
+                android:layout_below="@+id/tag_description"
                 android:layout_marginBottom="@dimen/spacing_medium_element"
+                android:justificationMode="inter_word"
                 android:text="@string/Lorem_ipsum"
-                android:textAppearance="?textAppearanceBody2" />
+                android:textAppearance="?textAppearanceBody2"
+                android:textColor="?colorOnSecondary" />
 
-        </LinearLayout>
+        </RelativeLayout>
 
     </androidx.constraintlayout.motion.widget.MotionLayout>
 </layout>

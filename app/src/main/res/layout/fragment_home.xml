@@ -11,12 +11,12 @@
     tools:context=".presentation.home.HomeFragment">
 
     <TextView
-        android:id="@+id/bienvenido_text"
+        android:id="@+id/messages_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/spacing_small_medium_element"
         android:text="@string/bienvenido"
-        android:textAppearance="?textAppearanceHeadline3"
+        android:textAppearance="?textAppearanceHeadline4"
         android:textColor="?colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,11 +25,11 @@
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/image_lottie_search"
-        android:layout_width="@dimen/item_image_size"
-        android:layout_height="@dimen/item_image_size"
+        android:layout_width="@dimen/message_image_size"
+        android:layout_height="@dimen/message_image_size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bienvenido_text" />
+        app:layout_constraintTop_toBottomOf="@+id/messages_text" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/input_search"
@@ -46,6 +46,8 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/input_edit_search"
+            android:inputType="text"
+            android:imeOptions="actionSearch"
             style="@style/TextInputEditText_SearchInput"
             android:hint="@string/haz_una_busqueda" />
     </com.google.android.material.textfield.TextInputLayout>

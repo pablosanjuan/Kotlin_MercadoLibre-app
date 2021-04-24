@@ -9,6 +9,13 @@ import javax.inject.Inject
 
 class ConfigViewModel @Inject constructor(): ViewModel(){
 
+    /**
+     * Pablo Sanjuan
+     *
+     * Contiene la logica para llamar a la instancia de ThemeProvider y cambiar
+     * su configuracion
+     */
+
     val themeIndex = MutableLiveData<Int>()
     @Inject
     lateinit var themeProvider: ThemeProvider

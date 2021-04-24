@@ -6,6 +6,13 @@ import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
 
+/**
+ * Pablo Sanjuan
+ *
+ * Modulo para crear instancias de los casos de uso que se adoptan dentro de
+ * Clean Architecture
+ */
+
 @Module
 class DomainModule {
 

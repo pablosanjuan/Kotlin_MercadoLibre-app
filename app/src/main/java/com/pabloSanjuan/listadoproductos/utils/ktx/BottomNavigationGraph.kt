@@ -13,9 +13,13 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.pabloSanjuan.listadoproductos.R
 
 /**
- * Manages the various graphs needed for a [BottomNavigationView].
+ * Pablo Sanjuan
  *
+ * Clase generica recomendada por GOOGLE para manejo de diferentes Graphs
+ * en NavComponent
  */
+
+
 fun BottomNavigationView.setupWithNavController(
     navGraphIds: List<Int>,
     fragmentManager: FragmentManager,

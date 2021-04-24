@@ -11,6 +11,14 @@ import com.pabloSanjuan.listadoproductos.presentation.splash.SplashActivity
 import dagger.Component
 import javax.inject.Singleton
 
+/**
+ * Pablo Sanjuan
+ *
+ * Componente para la creacion de modulos a ser inyectados en cualquier instancia
+ * de la app
+ */
+
+
 @Singleton
 @Component(
     modules = [

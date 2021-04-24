@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!--
+    /**
+    * Pablo Sanjuan
+    * Haciendo uso de la documentacion de MATERIAL DESIGN y Google
+    * defino los parametros a usar en los styles que maneja la App
+    *
+    * En esta clase defino los estilos de los componentes
+    */
+
+    -->
+
     <!--    INPUT BOX   -->
     <style name="TextInputEditText_SearchLayout" parent="Widget.MaterialComponents.TextInputLayout.FilledBox.Dense">
         <item name="boxCornerRadiusTopStart">@dimen/spacing_medium_element</item>

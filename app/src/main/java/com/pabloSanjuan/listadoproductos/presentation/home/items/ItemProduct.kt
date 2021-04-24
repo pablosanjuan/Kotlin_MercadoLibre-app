@@ -12,6 +12,15 @@ import kotlinx.android.synthetic.main.item_product.view.*
 
 class ItemProduct(val result: Result) : Item<ViewHolder>() {
 
+    /**
+     * Pablo Sanjuan
+     *
+     * Por medio de la libreria GROUPIE evito crear viewHolder ya que esta libreria me provee
+     * na instancias de ello y solo requiero implementar el BIND
+     *
+     * haciendo uso de GLIDE para cargar las imagenes
+     */
+
     override fun getLayout(): Int {
         return R.layout.item_product
     }

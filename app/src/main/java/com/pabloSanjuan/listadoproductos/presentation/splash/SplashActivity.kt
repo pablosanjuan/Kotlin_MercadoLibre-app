@@ -12,13 +12,20 @@ import javax.inject.Inject
 
 class SplashActivity : BaseActivity<SplashViewModel, ActivitySplashBinding>() {
 
+    /**
+     * Pablo Sanjuan
+     *
+     * - Cree una instancia del AppDeegate para majeo de THEMES de toda la app
+     */
+
     private lateinit var viewModel: SplashViewModel
     @Inject
     lateinit var themeProvider: ThemeProvider
 
     override fun onCreate(savedInstanceState: Bundle?) {
         appComponent.inject(this)
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
+        val theme = themeProvider.getThemeFromPreferences()
+        AppCompatDelegate.setDefaultNightMode(theme)
         super.onCreate(savedInstanceState)
         binding = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
