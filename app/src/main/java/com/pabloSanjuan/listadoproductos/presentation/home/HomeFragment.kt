@@ -139,7 +139,7 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
         }
     }
 
-    private fun getInputText(): String {
+    fun getInputText(): String {
         return binding.inputEditSearch.text.toString()
     }
 
