@@ -79,7 +79,7 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
             it.recyclerView.visible = state
             it.messagesText.visible = state.not()
             it.imageLottieArrow.visible = state.not()
-            it.imageLottieSearch.visible = state.not()
+            it.imageLottieMessage.visible = state.not()
         }
     }
 
@@ -105,7 +105,7 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
                     doSearch(view)
                 }
             }
-            it.imageLottieSearch.run {
+            it.imageLottieMessage.run {
                 setAnimation("lottie_hello.json")
                 repeatCount = ValueAnimator.INFINITE
                 speed = 1f
@@ -125,13 +125,14 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
         if (getInputText().isEmpty().not()) {
             adapter.clear()
             context?.let { context ->
-                val isOnline = isNetworkOnline(context)
-                viewModel.getData(
-                    query = getInputText(),
-                    isInternetAvailable = isOnline
-                )
+                if (isNetworkOnline(context)) {
+                    showLoading(true)
+                    viewModel.getData(query = getInputText())
+                }else {
+                    showUIError(requireContext().getString(R.string.no_internet))
+                    viewModel._productsList.postValue(null)
+                }
             }
-            showLoading(true)
         } else {
             context?.let {
                 it.toast(it.getString(R.string.palabra_a_buscar))
@@ -139,45 +140,43 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>() {
         }
     }
 
-    private fun getInputText(): String {
+    fun getInputText(): String {
         return binding.inputEditSearch.text.toString()
     }
 
     private fun initObservers() {
         viewModel.apply {
-            productsList.observe(viewLifecycleOwner, Observer {
-                if (it.paging?.total != 0) {
-                    adapter.clear()
-                    itemsUIState(true)
-                    it?.results?.forEach { result ->
-                        adapter.add(ItemProduct(result))
+            productsList.observe(viewLifecycleOwner, Observer { products ->
+                products?.let {
+                    if (it.paging?.total != 0) {
+                        adapter.clear()
+                        itemsUIState(true)
+                        it.results?.forEach { result ->
+                            adapter.add(ItemProduct(result))
+                        }
+                    } else {
+                        adapter.clear()
+                        showUIError(requireContext().getString(R.string.no_results))
                     }
-                } else {
-                    adapter.clear()
-                    showUIError(requireContext().getString(R.string.no_results))
+                    showLoading(false)
                 }
-                showLoading(false)
-            })
-            noInternetLiveData.observe(viewLifecycleOwner, Observer {
-                showUIError(it)
             })
             serverIssueLiveData.observe(viewLifecycleOwner, Observer {
                 showUILog(it)
+                showUIError(requireContext().getString(R.string.no_results))
             })
         }
     }
 
     private fun showUILog(msg: String) {
-        context?.let {
-            it.toast(msg)
-        }
+        context?.toast(msg)
     }
 
     private fun showUIError(msg: String) {
         itemsUIState(false)
         binding.messagesText.text = msg
         showLoading(false)
-        binding.imageLottieSearch.let {
+        binding.imageLottieMessage.let {
             it.setAnimation("lottie_search.json")
             it.repeatCount = 3
             it.speed = 1f
