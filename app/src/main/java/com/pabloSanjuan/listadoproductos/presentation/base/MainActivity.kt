@@ -46,12 +46,11 @@ class MainActivity : BaseActivity<MainActivityViewModel, ActivityMainBinding>(),
         appComponent.inject(this)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        setupBottomNavigationBar()
-
         if (savedInstanceState != null) {
             binding.bottomNavigationMain.selectedItemId =
                 currentMenuId
         }
+        setupBottomNavigationBar()
     }
 
     private fun setupBottomNavigationBar() {

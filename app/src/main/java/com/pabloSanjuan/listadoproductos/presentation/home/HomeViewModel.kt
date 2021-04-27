@@ -25,59 +25,52 @@ class HomeViewModel @Inject constructor(
      * - Por medio de LiveData hago comunicacion con la UI de la logica de negocio
      */
 
-    private val _serverIssueLiveData : MutableLiveData<String> = MutableLiveData()
+    private val _serverIssueLiveData: MutableLiveData<String> = MutableLiveData()
     val serverIssueLiveData: LiveData<String> get() = _serverIssueLiveData
 
-    private val _noInternetLiveData : MutableLiveData<String> = MutableLiveData()
-    val noInternetLiveData: LiveData<String> get() = _noInternetLiveData
-
-    private val _productsList : MutableLiveData<Products> = MutableLiveData()
+    val _productsList: MutableLiveData<Products> = MutableLiveData()
     val productsList: LiveData<Products> get() = _productsList
 
-    fun getData(query: String, isInternetAvailable: Boolean) {
+    fun getData(query: String) {
         val params = HashMap<String, String>()
         params["q"] = query
-        if (isInternetAvailable) {
-            viewModelScope.launch {
-                try {
-                    withContext(Dispatchers.IO) {
-                        val response = searchUseCase.invoke(SearchUseCase.Params(params))
-                        response.let {
-                            if (it.isSuccessful) {
-                                _productsList.postValue(it.body())
-                                this@launch.cancel()
-                            } else {
-                                it.errorBody()
-                            }
+        viewModelScope.launch {
+            try {
+                withContext(Dispatchers.IO) {
+                    val response = searchUseCase.invoke(SearchUseCase.Params(params))
+                    response.let {
+                        if (it.isSuccessful) {
+                            _productsList.postValue(it.body())
+                            this@launch.cancel()
+                        } else {
+                            it.errorBody()
                         }
                     }
-                    /**
-                     * SERVER ERROR HANDLER
-                     *
-                     * con este bloque podemos manejar erroes a nivel de Server
-                     * realize algo basico pero se pueden crear clases de
-                     * Failure para manejar estas excepciones
-                     */
-
-                } catch (ce: CancellationException) {
-                    Log.e(Constants.TAG, ce.toString())
-                } catch (e: Exception) {
-                    e.printStackTrace()
-                    catchError("[E] ${e.message}")
-                } catch (ioe: IOException) {
-                    catchError("[IOE] ${ioe.message}")
-                } catch (http: HttpException) {
-                    catchError("[HTTP] ${http.message}")
-
                 }
+                /**
+                 * SERVER ERROR HANDLER
+                 *
+                 * con este bloque podemos manejar erroes a nivel de Server
+                 * realize algo basico pero se pueden crear clases de
+                 * Failure para manejar estas excepciones
+                 */
+
+            } catch (ce: CancellationException) {
+                Log.e(Constants.TAG, ce.toString())
+            } catch (e: Exception) {
+                e.printStackTrace()
+                catchError("[E] ${e.message}")
+            } catch (ioe: IOException) {
+                catchError("[IOE] ${ioe.message}")
+            } catch (http: HttpException) {
+                catchError("[HTTP] ${http.message}")
+
             }
-        } else {
-            _noInternetLiveData.postValue("No hay conexion a Internet")
         }
     }
 
     private fun catchError(message: String?) {
-        _noInternetLiveData.postValue("Algo salio mal\nintenta de nuevo")
+        _productsList.postValue(null)
         _serverIssueLiveData.postValue(message)
     }
 }

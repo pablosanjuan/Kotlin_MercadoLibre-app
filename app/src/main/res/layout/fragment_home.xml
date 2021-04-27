@@ -24,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/image_lottie_search"
+        android:id="@+id/image_lottie_message"
         android:layout_width="@dimen/message_image_size"
         android:layout_height="@dimen/message_image_size"
         app:layout_constraintEnd_toEndOf="parent"
